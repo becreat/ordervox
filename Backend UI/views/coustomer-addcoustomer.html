@@ -1,0 +1,230 @@
+<div class="row">
+      <div class="col-lg-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-user fa-lg"></i> Customer Information</h3>
+          </div>
+          <div class="panel-body">
+            <form class="form-horizontal">
+
+              <div class="form-group">
+                <label for="inputEmail" class="col-lg-3 control-label">Name</label>
+                <div class="col-lg-9">
+                  <div class="col-lg-6"><input type="text" class="form-control" placeholder="Firstname"></div>
+                  <div class="col-lg-6"><input type="text" class="form-control" placeholder="Lastname"></div>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label for="inputEmail" class="col-lg-3 control-label">State and City</label>
+                <div class="col-lg-9">
+                  <div class="col-lg-6">
+                <select name="" class="form-control">
+                  <option value="">Select a state</option>
+                </select>
+                  </div>
+                      <div class="col-lg-6">
+                    <select name="" class="form-control">
+                      <option value="">Select a City</option>
+                    </select>
+                      </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="inputEmail" class="col-lg-3 control-label">Contact Number</label>
+                <div class="col-lg-9">
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control" placeholder="Phone">
+                  </div>
+                      <div class="col-lg-6">
+                    <input type="text" class="form-control" placeholder="Mobile">
+                      </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="inputEmail" class="col-lg-3 control-label">Email</label>
+                <div class="col-lg-9">
+                    <div class="col-lg-12">
+                      <div class="input-group">
+                          <span class="input-group-addon">@</span>
+                          <input type="text" class="form-control" placeholder="Email">    
+                      </div>
+                    </div>
+                    
+                </div>
+              </div>
+
+              <div class="form-group">
+                  <div class="col-lg-3"></div>
+                    <div class="col-lg-9">
+                        <div class="col-lg-6">
+                        <label for="inputEmail" class="control-label control-label-light">Password</label>
+                        <input type="password" class="form-control">
+                        
+                        </div>
+
+                        <div class="col-lg-6">
+                          <label for="inputEmail" class="control-label control-label-light">Confirm Password</label>
+                          <input type="password" class="form-control">
+                        </div>
+                    </div>
+
+
+                </div>
+
+              <div class="form-group">
+                <label for="inputEmail" class="col-lg-3 control-label">Post Code</label>
+                <div class="col-lg-9">
+                    <div class="col-lg-12">
+                      <input type="text" class="form-control" placeholder="Post Code">  
+                    </div>
+                    
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="inputEmail" class="col-lg-3 control-label">Postal Address</label>
+                <div class="col-lg-9">
+                    <div class="col-lg-12">
+                      <textarea class="form-control"  placeholder="Postal Address"></textarea> 
+                    </div>
+                    
+                </div>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-truck fa-lg"></i> Delivery Information</h3>
+          </div>
+          <div class="panel-body">
+                    <form class="form-horizontal">
+
+                      <div class="form-group">
+                        <label for="inputEmail" class="col-lg-4 control-label">Same as Postal Address</label>
+                        <div class="col-lg-8">
+                            <div class="btn-group">
+                                <label class="btn btn-default" ng-model="coustomer.sameaddress" btn-radio="'true'">Yes</label>
+                                <label class="btn btn-default" ng-model="coustomer.sameaddress" btn-radio="">No</label>
+                            </div>
+                        </div>
+                      </div>
+
+
+                      <div ng-hide="coustomer.sameaddress">
+                                    <div class="form-group">
+                                      <label for="inputEmail" class="col-lg-3 control-label">State and City</label>
+                                      <div class="col-lg-9">
+                                        <div class="col-lg-6">
+                                      <select name="" class="form-control">
+                                        <option value="">Select a state</option>
+                                      </select>
+                                        </div>
+                                            <div class="col-lg-6">
+                                          <select name="" class="form-control">
+                                            <option value="">Select a City</option>
+                                          </select>
+                                            </div>
+                                      </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                      <label for="inputEmail" class="col-lg-3 control-label">Post Code</label>
+                                      <div class="col-lg-9">
+                                          <div class="col-lg-12">
+                                            <input type="text" class="form-control" placeholder="Post Code">  
+                                          </div>
+                                          
+                                      </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                      <label for="inputEmail" class="col-lg-3 control-label">Delivery Address</label>
+                                      <div class="col-lg-9">
+                                          <div class="col-lg-12">
+                                            <textarea class="form-control"  placeholder="Delivery Address"></textarea> 
+                                          </div>
+                                          
+                                      </div>
+                                    </div>
+                      </div>
+                      
+                    </form>
+          </div>
+        </div>
+
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-plus-square fa-lg"></i>  Registration Information</h3>
+          </div>
+          <div class="panel-body">
+                      <form class="form-horizontal">
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label for="inputEmail" class="col-lg-7 control-label">Guest Checkout</label>
+                            <div class="col-lg-5">
+                                <div class="btn-group">
+                                    <label class="btn btn-default btn-sm" ng-model="coustomer.guestcheckout" btn-radio="'1'">Yes</label>
+                                    <label class="btn btn-default btn-sm" ng-model="coustomer.guestcheckout" btn-radio="'0'">No</label>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="inputEmail" class="col-lg-7 control-label">Email verification required</label>
+                            <div class="col-lg-5">
+                                <div class="btn-group">
+                                    <label class="btn btn-default btn-sm" ng-model="coustomere.everification" btn-radio="'1'">Yes</label>
+                                    <label class="btn btn-default btn-sm" ng-model="coustomere.everification"  btn-radio="'0'">No</label>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label for="inputEmail" class="col-lg-7 control-label">Enable Customers</label>
+                            <div class="col-lg-5">
+                                <div class="btn-group">
+                                    <label class="btn btn-default btn-sm" ng-model="coustomer.enable" btn-radio="'1'">Yes</label>
+                                    <label class="btn btn-default btn-sm" ng-model="coustomer.enable" btn-radio="'0'">No</label>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="inputEmail" class="col-lg-7 control-label">Subscribe to Newsletter</label>
+                            <div class="col-lg-5">
+                                <div class="btn-group">
+                                    <label class="btn btn-default btn-sm" ng-model="coustomer.newsletter" btn-radio="'1'">Yes</label>
+                                    <label class="btn btn-default btn-sm" ng-model="coustomer.newsletter" btn-radio="'0'">No</label>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        
+
+                        
+
+
+
+
+                        
+
+                        
+
+                        
+                        
+                      </form>
+          </div>
+        </div>
+      </div>
+    </div>

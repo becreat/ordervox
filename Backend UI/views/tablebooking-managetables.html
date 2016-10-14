@@ -1,0 +1,76 @@
+<div class="well well-sm">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pull-right">
+        <a  ui-sref="tablebooking.addtables" class="btn btn-success">Create New</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title"><i class="fa fa-table"></i>Manage Tables</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-top table-striped table-bordered table-hover table-condensed">
+					<tr>
+						<th></th>
+						<th>Table Name</th>
+						<th>Guest Capacity</th>
+						<th>No. Of Table</th>
+						<th>Table Status</th>
+						<th>Resturent</th>
+						<th>
+							
+							<center>
+								<div class="btn-group" dropdown>
+								  <button type="button" class="btn btn-xs btn-default">Action</button>
+								  <button type="button" class="btn btn-xs btn-default dropdown-toggle" dropdown-toggle>
+								    <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu" role="menu">
+								   	<li><a href="" ng-click="">Delete</a></li>
+								  </ul>
+								</div>
+
+							</center>
+							
+						</th>
+					</tr>
+
+					<tr class="row-filter">
+						<td width="2%" class="disable"></td>
+						<td><input type="text" ng-model="items.search.name"></td>
+						<td><input type="text" ng-model="items.search.capacity"></td>
+						<td><input type="text" ng-model="items.search.no"></td>
+						<td>
+							<select name="" id="">
+								<option value="">Enable</option>
+								<option value="">Disable</option>
+							</select>
+						</td>
+						<td><input type="text" ng-model="items.search.resturent"></td>
+						<td class="disable"></td>
+
+					</tr>
+
+					<tr ng-repeat="item in tables |filter:items.search">
+						<td>
+							<input type="checkbox"  ng-click="checkedItem($index)" />
+						</td>
+						<td>{{item.name}}</td>
+						<td>{{item.capacity}}</td>
+						<td>{{item.no}}</td>
+						<td><div class="label label-{{item.status}}">{{item.status}}</div></td>
+						<td>{{item.resturent}}</td>
+
+						<td>
+							<a ui-sref="tablebooking.addtables" class="btn btn-warning btn-xs">Edit</a>
+						</td>
+					</tr>
+				</table>
+
+
+			</div>
+		</div>

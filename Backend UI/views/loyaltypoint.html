@@ -1,0 +1,132 @@
+<h1 class="page-header">
+	Loyalty Point
+</h1>
+<div class="vsap"></div>
+<div class="vsap"></div>
+<div class="row">
+	<div class="col-lg-2 col-md-2">
+		<div class="m-sidebar">
+			<ul class="nav nav-pills nav-stacked">
+			  <li ui-sref-active="active"><a ui-sref="loyaltypoint">Customer Points</a></li>
+
+
+			</ul>
+		</div>
+	</div>
+
+	<div class="col-lg-10 col-md-10 viewloared" ui-view>
+		
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title"><i class="fa fa-plus-circle"></i> Loyalty Points</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-top table-striped table-bordered table-hover table-condensed">
+					<tr>
+						<th>No.</th>
+						<th>User Email </th>
+						<th>Customer Name </th>
+						<th>Used Point </th>
+						<th>Points Balance </th>
+						<th>Restaurant name</th>
+						<th>Bonus Point</th>
+						<th></th>
+					</tr>
+
+					<tr class="row-filter">
+						<td width="2%" class="disable"></td>
+						<td><input type="text" ng-model="items.search.email"></td>
+						<td><input type="text" ng-model="items.search.cname"></td>
+						<td><input type="text" ng-model="items.search.usedpoint"></td>
+						<td><input type="text" ng-model="items.search.blance"></td>
+						<td><input type="text" ng-model="items.search.resturent"></td>
+						<td><input type="text" ng-model="items.search.bonuspoint"></td>
+						<td class="disable"></td>
+
+					</tr>
+
+					<tr ng-repeat="item in points |filter:items.search">
+						<td>
+							<input type="checkbox"  ng-click="checkedItem($index)" />
+						</td>
+						<td>{{item.email}}</td>
+						<td>{{item.cname}}</td>
+						<td>{{item.usedpoint}}</td>
+						<td>{{item.blance}}</td>
+						<td>{{item.resturent}}</td>
+						<td class="field-edit"><input type="number" ng-model="item.bonuspoint"  ng-blur="save()"></td>
+
+						<td>
+							<a class="btn btn-warning btn-xs" ng-click="openModal()">Details</a>
+						</td>
+					</tr>
+				</table>
+
+				<div class="modal ng-modal" ng-show="toggleModal">
+				  <div class="modal-dialog modal-lg">
+				    <div class="modal-content">
+				      <div class="modal-header btn-primary">
+				        <button type="button" class="close" ng-click="openModal()">×</button>
+				         <h4 class="modal-title"><i class="fa fa-bar-chart fa-lg"></i> Loyalty points details</h4>
+				      </div>
+				      <div class="modal-body">
+				      	
+				      	<table class="table table-top table-striped table-bordered table-hover table-condensed">
+				      	  <tr>
+				      	    <th>No.</th>
+				      	    <th>Event</th>
+				      	    <th>User Email</th>
+				      	    <th>Customer Name</th>
+				      	    <th>Used Point </th>
+				      	    <th>Earned Point </th>
+				      	    <th>Date</th>
+				      	    <th>Points Balance </th>
+				      	  </tr>
+				      	  <tr>
+				      	    <td>1</td>
+				      	    <td>Hello worl</td>
+				      	    <td>ex@example.com</td>
+				      	    <td>Md ROny</td>
+				      	    <td>-20</td>
+				      	    <td>20</td>
+				      	    <td>12-15-2015</td>
+				      	    <td>50</td>
+				      	  </tr>
+
+				      	  <tr>
+				      	    <td>1</td>
+				      	    <td>Hello worl</td>
+				      	    <td>ex@example.com</td>
+				      	    <td>Md ROny</td>
+				      	    <td>-20</td>
+				      	    <td>20</td>
+				      	    <td>12-15-2015</td>
+				      	    <td>50</td>
+				      	  </tr>
+
+				      	  <tr>
+				      	    <td>1</td>
+				      	    <td>Hello worl</td>
+				      	    <td>ex@example.com</td>
+				      	    <td>Md ROny</td>
+				      	    <td>-20</td>
+				      	    <td>20</td>
+				      	    <td>12-15-2015</td>
+				      	    <td>50</td>
+				      	  </tr>
+				      	  </table>
+				      	
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-success" ng-click="">Import</button>
+				        <button type="button" class="btn btn-default" ng-click="openModal()">Close</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</div>

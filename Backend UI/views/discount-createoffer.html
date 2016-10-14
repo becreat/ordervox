@@ -1,0 +1,198 @@
+<div class="well well-sm">
+  <div class="row">
+    <div class="col-md-12">
+    
+      <div class="pull-right">
+        <a href="" class="btn btn-default">Back</a>
+        <a href="" class="btn btn-danger">Cancle</a>
+        <a href="" class="btn btn-success">Save</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+      <div class="col-lg-4">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Create New Offer</h3>
+          </div>
+          <div class="panel-body">
+            <form class="form-horizontal">
+
+
+
+              <div class="form-group">
+                <label for="inputEmail" class="col-lg-3 control-label">Offer Name</label>
+                <div class="col-lg-9">
+                  <input type="text" class="" class="form-control" >
+                </div>
+               
+              </div>
+
+             
+
+             
+
+              
+
+              <div class="form-group" >
+                <label for="inputEmail" class="col-lg-3 control-label">Coupon Code</label>
+                <div class="col-lg-9">
+                  <input type="text"  class="form-control">
+                </div>
+               
+              </div>
+
+              <div class="form-group" >
+                <label for="inputEmail" class="col-lg-3 control-label"><br>Value</label>
+                <div class="col-lg-9">
+                      <div class="btn-group">
+                          <label class="btn btn-default" ng-model="offer.valuType" btn-radio="">Fixed</label>
+                          <label class="btn btn-default" ng-model="offer.valuType" btn-radio="true">Percentage</label>
+                      </div>
+                      <input type="text"  class="form-control">
+                      
+                    
+                  
+                </div>
+               
+              </div>
+
+
+
+          
+              
+            </form>
+          </div>
+        </div>
+
+         
+      </div>
+     
+      <div class="col-lg-8">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-check-circle-o fa-lg"></i> Select offers Type</h3>
+          </div>
+          <div class="panel-body">
+             <form class="form-horizontal">
+               <div class="form-group">
+                 <label for="inputEmail" class="col-lg-3 control-label">Select offers Type</label>
+                 <div class="col-lg-9">
+                   <div class="btn-group">
+                       <label class="btn btn-default" ng-model="offer.type" btn-radio="">Based On Item</label>
+                       <label class="btn btn-default" ng-model="offer.type" btn-radio="true">During Purchase</label>
+                   </div>
+                 </div>
+                
+               </div>
+
+               <div ng-hide="offer.type" class="well">
+                 <div class="form-group">
+                   <label for="inputEmail" class="col-lg-3 control-label">Select Category : </label>
+                   <div class="col-lg-9">
+                     <ui-select ng-model="category.selected" theme="bootstrap">
+                      <ui-select-match placeholder="Select Category">{{$select.selected.name}}</ui-select-match>
+                      <ui-select-choices repeat="c in categorys | filter:$select.search">
+                        {{c.name}}
+                      </ui-select-choices>
+                     </ui-select>
+                   </div>
+                 </div>
+                 <div class="form-group" >
+                   <label for="inputEmail" class="col-lg-3 control-label">Select Items :</label>
+                   <div class="col-lg-9">
+                     <ui-select multiple ng-model="item.selected" theme="bootstrap">
+                        <ui-select-match placeholder="Select Product">{{$item.name}}</ui-select-match>
+                        <ui-select-choices repeat="p in items | filter:$select.search">
+                          {{p.name}}
+                        </ui-select-choices>
+                      </ui-select>
+                   </div>
+                 </div>
+               </div>
+
+               <div class="form-group" ng-show="offer.type">
+                 <label for="inputEmail" class="col-lg-3 control-label">If Price Greater Than : </label>
+                 <div class="col-lg-9">
+                   <input type="number" class="form-control" >
+                 </div>
+               </div>
+
+             </form>
+          </div>
+        </div>
+
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-bars fa-lg"></i>  Coupon Use</h3>
+          </div>
+          <div class="panel-body">
+
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label for="inputEmail" class="col-lg-3 control-label">Coupon Use</label>
+                <div class="col-lg-9">
+                  <div class="btn-group">
+                      <label class="btn btn-default" ng-model="offer.couponType" btn-radio="">Single Use</label>
+                      <label class="btn btn-default" ng-model="offer.couponType" btn-radio="true">Multiple Use</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group" ng-show="offer.couponType">
+                <label for="inputEmail" class="col-lg-3 control-label">Number Of Use</label>
+                <div class="col-lg-9">
+                  <input type="number" class="form-control" >
+                </div>
+              </div>
+            </form>
+            
+            
+
+          </div>
+        </div>
+
+         <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-cog fa-lg"></i>  Offer Options</h3>
+          </div>
+          <div class="panel-body">
+            
+            <form class="form-horizontal">
+              <div class="col-lg-7">
+
+                <div class="form-group">
+                  <label for="inputEmail" class="col-lg-8 control-label">Only Work with newly registered Users :</label>
+                  <div class="col-lg-4">
+                      <div class="btn-group">
+                          <label class="btn btn-default btn-sm" ng-model="coustomere.everification" btn-radio="'1'">Yes</label>
+                          <label class="btn btn-default btn-sm" ng-model="coustomere.everification"  btn-radio="'0'">No</label>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-5">
+                <div class="form-group">
+                  <label for="inputEmail" class="col-lg-7 control-label">Enable Offer :</label>
+                  <div class="col-lg-5">
+                      <div class="btn-group">
+                          <label class="btn btn-default btn-sm" ng-model="coustomer.enable" btn-radio="'1'">Yes</label>
+                          <label class="btn btn-default btn-sm" ng-model="coustomer.enable" btn-radio="'0'">No</label>
+                      </div>
+                  </div>
+                </div>
+
+               
+              </div>
+              
+            </form>
+            
+          </div>
+        </div>
+
+       
+
+
+      </div>
+    </div>

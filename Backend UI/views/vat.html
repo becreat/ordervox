@@ -1,0 +1,62 @@
+<h1 class="page-header">
+	Manage VAT Class
+</h1>
+<div class="vsap"></div>
+
+
+<div class="row">
+	<div class="col-lg-2 col-md-2">
+		<div class="m-sidebar">
+			
+		</div>
+	</div>
+
+	
+
+	<div class="col-lg-10 col-md-10">
+		<div class="panel panel-primary">
+			<div class="panel-heading"><h3 class="panel-title">Add New Rule</h3></div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-lg-4">
+						<input type="text" name="" id="" class="form-control" placeholder="Rule Name" ng-model="vat.name">
+					</div>
+					<div class="col-lg-4">
+						<input type="text" name="" id="" class="form-control" placeholder="Rule" ng-model="vat.rule">
+					</div>
+					<div class="col-lg-1"></div>
+					<div class="col-md-3">
+						<a ng-click="add(vat.name,vat.rule)" class="btn btn-info btn-block"><i class="fa fa-plus-circle"></i> Add</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<table class="table table-top table-striped table-bordered table-hover table-condensed">
+			<tr>
+				<th>Vat Rules Name</th>
+				<th>Vat Rules</th>
+				<th></th>
+			</tr>
+
+			<tr class="row-filter">
+				<td><input type="text" ng-model="items.search.name"></td>
+				<td><input type="text" ng-model="items.search.rule"></td>
+				<td class="disable"></td>
+			</tr>
+
+			<tr ng-repeat="item in vat |filter:items.search">
+				<td>{{item.name}}</td>	
+				<td>{{item.rule}} %</td>
+				<td><a ng-click="remove($index)" class="btn btn-danger btn-xs"><i class="fa fa-times"></i> Remove</a></td>
+			</tr>
+
+
+
+
+
+
+
+		</table>
+		
+	</div>
+</div>

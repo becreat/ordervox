@@ -1,0 +1,102 @@
+<div class="well well-sm">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pull-right">
+        <a  ui-sref="tablebooking.createbooking" class="btn btn-success">Create New Booking</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title"><i class="fa fa-book"></i> Manage Booking</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-top table-striped table-bordered table-hover table-condensed">
+					<tr>
+						<th></th>
+						
+						
+						 
+						
+						
+						
+						 
+						
+						
+					 
+						<th>Email</th>
+						<th>Name</th>
+						<th>No. Of Guest</th>
+						<th>Table Name</th>
+						<th>Setting Area</th>
+						<th>Booking Date </th>
+						<th>Reservation Date</th>
+						<th>Reservation Time </th>
+						<th>Booking Status</th>
+						<th>Restaurant Name</th>
+						<th width="10%">
+							
+							<center>
+								<div class="btn-group" dropdown>
+								  <button type="button" class="btn btn-xs btn-default">Action</button>
+								  <button type="button" class="btn btn-xs btn-default dropdown-toggle" dropdown-toggle>
+								    <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu" role="menu">
+								   	<li><a href="" ng-click="">Approved</a></li>
+								   	<li><a href="" ng-click="">Cancle</a></li>
+								  </ul>
+								</div>
+
+							</center>
+							
+						</th>
+					</tr>
+
+					<tr class="row-filter">
+						<td width="2%" class="disable"></td>
+						<td><input type="text" ng-model="items.search.email"></td>
+						<td><input type="text" ng-model="items.search.name"></td>
+						<td><input type="text" ng-model="items.search.gustnumber"></td>
+						<td><input type="text" ng-model="items.search.tablename"></td>
+						<td><input type="text" ng-model="items.search.settingarea"></td>
+						<td><input type="text" ng-model="items.search.bookingdate"></td>
+						<td><input type="text" ng-model="items.search.reservationdate"></td>
+						<td><input type="text" ng-model="items.search.reservationtime"></td>
+						<td>
+							<select name="" id="">
+								<option value="">Approved</option>
+								<option value="">Cancle</option>
+							</select>
+						</td>
+						<td><input type="text" ng-model="items.search.resturent"></td>
+						<td class="disable"></td>
+
+					</tr>
+
+					<tr ng-repeat="item in booking |filter:items.search">
+						<td>
+							<input type="checkbox"  ng-click="checkedItem($index)" />
+						</td>
+						<td>{{item.email}}</td>
+						<td>{{item.name}}</td>
+						<td>{{item.gustnumber}}</td>
+						<td>{{item.tablename}}</td>
+						<td>{{item.settingarea}}</td>
+						<td>{{item.bookingdate}}</td>
+						<td>{{item.reservationdate}}</td>
+						<td>{{item.reservationtime}}</td>
+						<td><div class="label label-{{item.status}}">{{item.status}}</div></td>
+						<td>{{item.resturent}}</td>
+
+						<td >
+							<a ui-sref="tablebooking.createbooking"class="btn btn-warning btn-xs">Edit</a>
+						</td>
+					</tr>
+				</table>
+
+
+			</div>
+		</div>

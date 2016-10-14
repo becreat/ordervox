@@ -1,0 +1,84 @@
+<div class="well well-sm">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pull-right">
+        <a ui-sref="emailmarketing.createNewsletter" class="btn btn-success">New Campaign</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title"><i class="fa fa-envelope-o"></i> Manages Newsletter</h3>
+  </div>
+  <div class="panel-body">
+  	     		<table class="table table-top table-striped table-bordered table-hover table-condensed">
+  			    	<tr>
+                <th></th>
+  			    		<th>Campaign Name</th>
+  			    		<th>Template Name</th>
+  			    		<th>Scheduled Date </th>
+                <th>Status</th>
+                <th>Sent To</th>
+                <th>Restaurant Name</th>
+  			    		<th>
+  			    			<center>
+  			    				<div class="btn-group" dropdown>
+  			    				  <button type="button" class="btn btn-xs btn-default">Action</button>
+  			    				  <button type="button" class="btn btn-xs btn-default dropdown-toggle" dropdown-toggle>
+  			    				    <span class="caret"></span>
+  			    				  </button>
+  			    				  <ul class="dropdown-menu" role="menu">
+  			    				   	<li><a href="" ng-click="">Delete</a></li>
+  			    				  </ul>
+  			    				</div>
+
+  			    			</center>
+  			    		</th>
+  			    	</tr>
+
+  			    	<tr class="row-filter">
+  			    		<td width="2%" class="disable"></td>
+  			    		<td><input type="text" ng-model="items.search.name"></td>
+                <td><input type="text" ng-model="items.search.theme"></td>
+                <td><input type="text" ng-model="items.search.date"></td>
+                <td>
+                  <select ng-model="items.search.status">
+                    <option value="">All</option>
+                    <option value="queued">Queued</option>
+                    <option value="sent">Sent</option>
+                  </select>
+                </td>
+                <td></td>
+                <td><input type="text" ng-model="items.search.resturent"></td>
+                <td></td>
+  			    		
+  			    	</tr>
+
+  			    	<tr ng-repeat="item in campaigns |filter:items.search">
+  			    		<td>
+  			    			<input type="checkbox"  ng-click="checkedItem($index)" />
+  			    		</td>
+  			    		<td>{{item.name}}</td>
+                <td>{{item.theme}}</td>
+  			    		<td>{{item.sdate}}</td>
+                <td><span class="label label-default label-{{item.status}}">{{item.status}}</span></td>
+  			    		<td>{{item.sentto}}</td>
+                <td>{{item.resturent}}</td>
+                <td>
+                  <center>
+                    <a  ui-sref="emailmarketing.createNewsletter" class="btn btn-xs btn-warning">Edit</a>
+                  </center>
+                </td>
+  			    	</tr>
+
+  			    
+  			    	
+  			    	
+  			    	
+  			    	
+
+  		    	</table>
+  </div>
+</div>

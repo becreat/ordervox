@@ -1,0 +1,87 @@
+<div class="well well-sm">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pull-right">
+        <a  ui-sref="restaurant.add" class="btn btn-success">Build New Resturent</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title"><i class="fa fa-book"></i>Resturents</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-top table-striped table-bordered table-hover table-condensed">
+					<tr>
+						<th></th>					
+						<th>Restaurant Name</th>
+						<th>Restaurant URL</th>
+						<th>Contact Person</th>
+						<th>Restaurant Email</th>
+						<th>Phone Number</th>
+						<th>Status</th>
+						<th>Added Date</th>
+						<th>Package</th>
+						<th width="10%">							
+							<center>
+								<div class="btn-group" dropdown>
+								  <button type="button" class="btn btn-xs btn-default">Action</button>
+								  <button type="button" class="btn btn-xs btn-default dropdown-toggle" dropdown-toggle>
+								    <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu" role="menu">
+								   	<li><a href="" ng-click="">Enable</a></li>
+								   	<li><a href="" ng-click="">Disable</a></li>
+								  </ul>
+								</div>
+
+							</center>
+							
+						</th>
+					</tr>
+
+					<tr class="row-filter">
+						<td width="2%" class="disable"></td>
+						<td><input type="text" ng-model="items.search.name"></td>
+						<td><input type="text" ng-model="items.search.url"></td>
+						<td><input type="text" ng-model="items.search.contact_name"></td>
+						<td><input type="text" ng-model="items.search.email"></td>
+						<td><input type="text" ng-model="items.search.phone"></td>
+						<td width="10%">
+							<select ng-model="items.search.status" >
+								<option value="">All</option>
+								<option value="suspend">Suspend</option>
+								<option value="disable">Disable</option>
+								<option value="trial">Trial</option>
+								<option value="enable">Enable</option>
+								<option value="active">Active</option>
+							</select>
+						</td>
+						<td><input type="text" ng-model="items.search.date"></td>
+						<td><input type="text" ng-model="items.search.pack"></td>
+						<td><input type="text" ng-model="items.search.resturent"></td>
+						<td class="disable"></td>
+
+					</tr>
+
+					<tr ng-repeat="item in resturents |filter:items.search">
+						<td>
+							<input type="checkbox"  ng-click="checkedItem($index)" />
+						</td>
+						<td>{{item.name}}</td>
+						<td><a href="{{item.url}}">{{item.url}}</a></td>
+						<td>{{item.contact_name}}</td>
+						<td>{{item.email}}</td>
+						<td>{{item.phone}}</td>
+						<td><center><span class="label label-{{item.status}}">{{item.status}}</span></center></td>
+						<td>{{item.date}}</td>
+						<td>{{item.pack}}</td>
+						<td><center><a ui-sref="restaurant.add"class="btn btn-warning btn-xs">Edit</a></center></td>
+					</tr>
+				</table>
+
+
+			</div>
+		</div>

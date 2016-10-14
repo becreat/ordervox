@@ -1,0 +1,79 @@
+<div class="well well-sm">
+	<div class="row">
+		<div class="col-md-12">
+		
+			<div class="pull-right">
+				<a href="" class="btn btn-default">Back</a>
+				<a href="" class="btn btn-danger">Cancle</a>
+				<a ng-click="toggleModal=!toggleModal" class="btn btn-success">Save</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+		    <h3 class="panel-title"><i class="fa fa-th"></i> Add Package</h3>
+		  </div>
+		  <div class="panel-body">
+		    <form class="form-horizontal">
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Package Name</label>
+		    	  <div class="col-lg-10"><input type="text" class="form-control"></div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">List of Features</label>
+		    	  <div class="col-lg-10">
+		    	  		<div class="btn-group">   
+		    	  	        <label class="btn btn-default btn-sm" ng-model="feature.a" btn-checkbox>Email Marketing</label>
+		    	  	        <label class="btn btn-default btn-sm" ng-model="feature.b" btn-checkbox>Coupon Generator</label>
+		    	  	        <label class="btn btn-default btn-sm" ng-model="feature.c" btn-checkbox>Coupon Generator</label>
+		    	  	        <label class="btn btn-default btn-sm" ng-model="feature.d" btn-checkbox>Sales Report</label>
+		    	  	        <label class="btn btn-default btn-sm" ng-model="feature.e" btn-checkbox>Automatic Order Printing System</label>
+		    	  	        <label class="btn btn-default btn-sm" ng-model="feature.f" btn-checkbox>External Live Chat</label>
+		    	  	        <label class="btn btn-default btn-sm" ng-model="feature.g" btn-checkbox>Gift Card</label>
+		    	  	        <label class="btn btn-default btn-sm" ng-model="feature.h" btn-checkbox>Bonus Point</label>
+		    	  	        <label class="btn btn-default btn-sm" ng-model="feature.i" btn-checkbox>Admin easy check Out</label>
+		    	  	    </div>
+		    	  </div>
+		    	</div>
+
+		    
+
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Notes</label>
+		    	  <div class="col-lg-10">
+		    	  		<textarea  class="form-control"></textarea>
+	    	  	    </div>
+		    	</div>
+		    </form>
+		  </div>
+		</div>
+	</div>
+</div>
+
+<div class="modal ng-modal" ng-show="toggleModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="toggleModal=!toggleModal">×</button>
+        <h4 class="modal-title"><strong>Change Log	</strong></h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+        	<div class="form-group">
+        		 <div class="col-lg-12">
+        		 	<textarea class="form-control"></textarea>
+        		 </div>
+        	</div>
+    	</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" ng-click="toggleModal=!toggleModal">Save</button>
+        <button type="button" class="btn btn-danger" ng-click="toggleModal=!toggleModal">Cancle</button>
+      </div>
+    </div>
+  </div>
+</div>

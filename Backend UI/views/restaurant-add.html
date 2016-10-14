@@ -1,0 +1,189 @@
+<div class="well well-sm">
+	<div class="row">
+		<div class="col-md-12">
+		
+			<div class="pull-right">
+				<a href="" class="btn btn-default">Back</a>
+				<a href="" class="btn btn-danger">Cancle</a>
+				<a href="" class="btn btn-success">Save</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-7">
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+		    <h3 class="panel-title"><i class="fa fa-plus-circle"></i>Add Resturent</h3>
+		  </div>
+		  <div class="panel-body">
+		    <form class="form-horizontal">
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">Resturent Name :</label>
+		    	  <div class="col-lg-9"><input type="text" class="form-control"></div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">Resturent URL :</label>
+		    	  <div class="col-lg-9"><input type="text" class="form-control"></div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">Resturent Email :</label>
+		    	  <div class="col-lg-9"><input type="email" class="form-control"></div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">Phone Number :</label>
+		    	  <div class="col-lg-9"><input type="text" class="form-control"></div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">Address :</label>
+		    	  <div class="col-lg-9">
+		    	  		<input type="text" class="form-control" placeholder="Address line 1 .....">
+		    	  		<div class="g-vsap" style="height: 10px;"></div>
+		    	  		<input type="text" class="form-control" placeholder="Address line 2 .....">
+		    	   </div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">Postal Code :</label>
+		    	  <div class="col-lg-9"><input type="text" class="form-control"></div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">VAT Number :</label>
+		    	  <div class="col-lg-9"><input type="text" class="form-control"></div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">Select Package :</label>
+		    	  <div class="col-lg-9">
+		    	  		<div class="btn-group">   
+		    	  	        <label class="btn btn-default" ng-model="package" btn-radio="1">Trail Package</label>
+		    	  	        <label class="btn btn-default" ng-model="package" btn-radio="2">Package One</label>
+		    	  	        <label class="btn btn-default" ng-model="package" btn-radio="3">Package Two</label>
+		    	  	        <label class="btn btn-default" ng-model="package" btn-radio="4">Package Three</label>
+		    	  	    </div>
+		    	  </div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">Status</label>
+		    	  <div class="col-lg-9">
+		    	  		<div class="btn-group" ng-init="status=1">   
+		    	  	        <label class="btn btn-default" ng-change="toggleModal =! toggleModal" ng-model="status" btn-radio="1">Enable</label>
+		    	  	        <label class="btn btn-default" ng-change="toggleModal =! toggleModal" ng-model="status" btn-radio="4">Suspend</label>
+		    	  	        <label class="btn btn-default" ng-change="toggleModal =! toggleModal" ng-model="status" btn-radio="2">Disable</label>
+		    	  	        <label class="btn btn-default" ng-change="toggleModal =! toggleModal" ng-model="status" btn-radio="3">Trial</label>
+		    	  	        <label class="btn btn-default" ng-change="toggleModal =! toggleModal" ng-model="status" btn-radio="5">Active</label>
+		    	  	    </div>
+		    	  </div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">Notes</label>
+		    	  <div class="col-lg-9">
+		    	  		<textarea class="form-control"></textarea>
+		    	  </div>
+		    	</div>
+
+
+		    </form>
+		  </div>
+		</div>
+	</div>
+	<div class="col-lg-5" style="zoom: .8;">
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+		    <h3 class="panel-title"><i class="fa fa-user"></i>Contact Person</h3>
+		  </div>
+		  <div class="panel-body">
+		    <form class="form-horizontal">
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">Name :</label>
+		    	  <div class="col-lg-9"><input type="text" class="form-control"></div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">Role  :</label>
+		    	  <div class="col-lg-9"><input type="text" class="form-control"></div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">Address :</label>
+		    	  <div class="col-lg-9">
+		    	  		<input type="text" class="form-control" placeholder="Address line 1 .....">
+		    	  		<div class="g-vsap" style="height: 10px;"></div>
+		    	  		<input type="text" class="form-control" placeholder="Address line 2 .....">
+		    	   </div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">Phone Number :</label>
+		    	  <div class="col-lg-9"><input type="text" class="form-control"></div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">Email :</label>
+		    	  <div class="col-lg-9"><input type="text" class="form-control"></div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">DOB :</label>
+		    	  <div class="col-lg-9"><input type="text" class="form-control"></div>
+		    	</div>
+		    </form>
+		  </div>
+		</div>
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+		    <h3 class="panel-title"><i class="fa fa-user"></i>Secondary Contact Person</h3>
+		  </div>
+		  <div class="panel-body">
+		    <form class="form-horizontal">
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">Name :</label>
+		    	  <div class="col-lg-9"><input type="text" class="form-control"></div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">Role  :</label>
+		    	  <div class="col-lg-9"><input type="text" class="form-control"></div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">Address :</label>
+		    	  <div class="col-lg-9">
+		    	  		<input type="text" class="form-control" placeholder="Address line 1 .....">
+		    	  		<div class="g-vsap" style="height: 10px;"></div>
+		    	  		<input type="text" class="form-control" placeholder="Address line 2 .....">
+		    	   </div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">Phone Number :</label>
+		    	  <div class="col-lg-9"><input type="text" class="form-control"></div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">Email :</label>
+		    	  <div class="col-lg-9"><input type="text" class="form-control"></div>
+		    	</div>
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-3 control-label">DOB :</label>
+		    	  <div class="col-lg-9"><input type="text" class="form-control"></div>
+		    	</div>
+		    </form>
+		  </div>
+		</div>
+	</div>
+</div>
+
+<div class="modal ng-modal" ng-show="toggleModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="toggleModal=!toggleModal">×</button>
+        <h4 class="modal-title"><strong>Reasons to change status</strong></h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+        	<div class="form-group">
+        		 <div class="col-lg-12">
+        		 	<textarea class="form-control"></textarea>
+        		 </div>
+        	</div>
+    	</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" ng-click="toggleModal=!toggleModal">Change</button>
+        <button type="button" class="btn btn-danger" ng-click="toggleModal=!toggleModal">Cancle</button>
+      </div>
+    </div>
+  </div>
+</div>

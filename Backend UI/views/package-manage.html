@@ -1,0 +1,48 @@
+<div class="well well-sm">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pull-right">
+        <a  ui-sref="package.add" class="btn btn-success">Create New Booking</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title"><i class="fa fa-book"></i> Manage Package</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-top table-striped table-bordered table-hover table-condensed">
+					<tr>
+						<th>No.</th>
+						<th>Package Name</th>
+						<th>Number Of Restaurant</th>
+						<th class="disable"></th>
+					</tr>
+
+					<tr class="row-filter">
+						<td width="2%" class="disable">{{$index}}</td>
+						<td><input type="text" ng-model="items.search.name"></td>
+						<td><input type="text" ng-model="items.search.users_count"></td>
+						<td class="disable"></td>
+
+					</tr>
+
+					<tr ng-repeat="item in packages |filter:items.search">
+						<td>
+							{{$index+1}}
+						</td>
+						<td>{{item.name}}</td>
+						<td>{{item.users_count}}</td>
+						
+
+						<td >
+							<a ui-sref="package.add"class="btn btn-warning btn-xs">Edit</a>
+						</td>
+					</tr>
+				</table>
+
+
+			</div>
+		</div>

@@ -1,0 +1,677 @@
+	<div class="panel panel-default">
+  <div class="panel-heading"><i class="fa fa-file-text-o fa-lg"></i> <strong> Create Order</strong></div>
+  <div class="panel-body">
+  	<tabset>
+      <tab>
+        <tab-heading>
+          <span class='badge'>1 </span> &nbsp;Add Items
+        </tab-heading>
+       	
+       	<div class="well">
+       	  <div class="panel panel-default">
+       	    <div class="panel-body">
+       	     	<div class="row">
+       	     		<div class="col-lg-2">
+       	     			 <ui-select ng-model="category.selected" theme="bootstrap">
+       	     			 	<ui-select-match placeholder="Select Category">{{$select.selected.name}}</ui-select-match>
+       	     			 	<ui-select-choices repeat="c in categorys | filter:$select.search">
+       	     			 	  {{c.name}}
+       	     			 	</ui-select-choices>
+       	     			 </ui-select>
+       	     		</div>
+
+       	     		<div class="col-lg-2">
+       	     			<ui-select ng-model="item.selected" theme="bootstrap">
+       	     			 	<ui-select-match placeholder="Select Product">{{$select.selected.name}}</ui-select-match>
+       	     			 	<ui-select-choices repeat="p in items | filter:$select.search">
+       	     			 	  {{p.name}}
+       	     			 	</ui-select-choices>
+       	     			 </ui-select>
+       	     		</div>
+
+       	     		<div class="col-lg-2">
+       	     			<ui-select ng-model="price.selected" theme="bootstrap">
+       	     			 	<ui-select-match placeholder="Select Price">{{$select.selected.name}}</ui-select-match>
+       	     			 	<ui-select-choices repeat="p in prices | filter:$select.search">
+       	     			 	  {{p.name}} | {{p.rate|currency}}
+       	     			 	</ui-select-choices>
+       	     			 </ui-select>
+       	     		</div>
+
+       	     		<div class="col-lg-4">
+       	     			<ui-select multiple  ng-model="addon.selected" theme="bootstrap" >
+       	     			  <ui-select-match placeholder="Select Addon">{{$item.name}}</ui-select-match>
+       	     			  <ui-select-choices repeat="a in addons | filter:$select.search">
+       	     			    {{a.name}} | {{a.rate|currency}}
+       	     			  </ui-select-choices>
+       	     			</ui-select>
+       	     		</div>
+
+       	     		<div class="col-lg-1">
+       	     			<input type="number" placeholder="qyt" ng-model="qyt">
+       	     		</div>
+       	     		
+       	     		<div class="col-lg-1">
+       	     			<a href="" class="btn btn-success pull-right" ng-click="addItem()">Add Item</a>
+       	     		</div>
+       	     	</div>
+
+       	    </div>
+       	  </div>
+			
+		    <table class="table table-top table-striped table-bordered table-hover table-condensed">
+		    	<tr>
+		    		<th>No.</th>
+		    		<th>Item</th>
+		    		<th>Special Notes</th>
+		    		<th>QYT</th>
+		    		<th>Price</th>
+		    		<th>Vat</th>
+		    		<th>Total Price</th>
+		    		<th>Points Earned</th>
+		    		<th class="disable"></th>
+		    	</tr>
+
+		    	<tr ng-repeat="item in selecteditems">
+		    		<td>{{$index+1}}</td>
+		    		<td>{{item.name}}</td>
+		    		<td>
+		    			Lorem ipsum dolor sit amet
+		    		</td>
+		    		<td>{{item.qyt}}</td>
+		    		<td>{{item.price |currency}}</td>
+		    		<td>{{0 |currency}}</td>
+		    		<td>{{ (item.price + item.extra) * item.qyt |currency}}</td>
+		    		<td>0</td>
+		    		<td><center><i class="fa fa-trash-o fa-lg icon" ng-click="removeItem($index)"></i></center></td>
+		    	</tr>
+
+		    	<tr>
+		    		<td><br></td>
+		    		<td></td>
+		    		<td></td>
+		    		<td></td>
+		    		<td></td>
+		    		<td></td>
+		    		<td></td>
+		    		<td></td>
+		    		<td></td>
+		    	</tr>
+		    	<tr>
+		    		<td><br></td>
+		    		<td></td>
+		    		<td></td>
+		    		<td></td>
+		    		<td></td>
+		    		<td></td>
+		    		<td></td>
+		    		<td></td>
+		    		<td></td>
+		    	</tr>
+		    	
+		    	
+
+	    	</table>
+
+	    	<div class="vsap"></div>
+	    	<div class="vsap"></div>
+
+	    	<div class="row">
+	    		<div class="col-lg-6">
+	    			<div class="panel panel-primary">
+	    			  <div class="panel-heading">
+	    			    <h3 class="panel-title">Notes By Admin</h3>
+	    			  </div>
+	    			  <div class="panel-body">
+	    			    <textarea class="form-control"></textarea>
+	    			  </div>
+	    			</div>
+	    		</div>
+	    	</div>
+       	  	    	
+       	  	    	
+       	</div>
+
+
+
+      </tab>
+
+      <tab>
+        <tab-heading>
+          <span class='badge'>2</span> Customer Info
+        </tab-heading>
+        <div class="well well-sm">
+          	<div class="btn-group" ng-init="coustomer.type=true">
+              	<label class="btn btn-default active" ng-model="coustomer.type" btn-radio="true">New Customer</label>
+              	<label class="btn btn-default" ng-model="coustomer.type" btn-radio="''">Existing customer</label>
+            </div>
+        </div>
+		
+		<div class="row" ng-show="coustomer.type">
+			<div class="col-lg-6">
+				<div class="panel panel-primary">
+				  <div class="panel-heading">
+				    <h3 class="panel-title"><i class="fa fa-user fa-lg"></i> Customer Information</h3>
+				  </div>
+				  <div class="panel-body">
+				   	<form class="form-horizontal">
+
+				   		<div class="form-group">
+				   		  <label for="inputEmail" class="col-lg-3 control-label">Name</label>
+				   		  <div class="col-lg-9">
+				   		  	<div class="col-lg-6"><input type="text" class="form-control" placeholder="Firstname"></div>
+				   		  	<div class="col-lg-6"><input type="text" class="form-control" placeholder="Lastname"></div>
+				   		  </div>
+				   		</div>
+
+
+				   		<div class="form-group">
+				   		  <label for="inputEmail" class="col-lg-3 control-label">State and City</label>
+				   		  <div class="col-lg-9">
+				   		  	<div class="col-lg-6">
+								<select name="" class="form-control">
+									<option value="">Select a state</option>
+								</select>
+				   		  	</div>
+	   		  	   		  	<div class="col-lg-6">
+	   		  					<select name="" class="form-control">
+	   		  						<option value="">Select a City</option>
+	   		  					</select>
+	   		  	   		  	</div>
+				   		  </div>
+				   		</div>
+
+				   		<div class="form-group">
+				   		  <label for="inputEmail" class="col-lg-3 control-label">Contact Number</label>
+				   		  <div class="col-lg-9">
+				   		  	<div class="col-lg-6">
+				   		  		<input type="text" class="form-control" placeholder="Phone">
+				   		  	</div>
+	   		  	   		  	<div class="col-lg-6">
+	   		  					<input type="text" class="form-control" placeholder="Mobile">
+	   		  	   		  	</div>
+				   		  </div>
+				   		</div>
+
+				   		<div class="form-group">
+				   		  <label for="inputEmail" class="col-lg-3 control-label">Email</label>
+				   		  <div class="col-lg-9">
+				   		  		<div class="col-lg-12">
+				   		  			<div class="input-group">
+				   		  			    <span class="input-group-addon">@</span>
+				   		  			    <input type="text" class="form-control" placeholder="Email">    
+				   		  			</div>
+				   		  		</div>
+				   		  		
+				   		  </div>
+				   		</div>
+
+				   		<div class="form-group">
+   				   			<div class="col-lg-3"></div>
+	   		     		  	<div class="col-lg-9">
+  		   		     		  	<div class="col-lg-6">
+  					   		  		<label for="inputEmail" class="control-label control-label-light">Password</label>
+  					   		  		<input type="password" class="form-control">
+  			   		  				
+  		   		     		  	</div>
+
+  		   		     		  	<div class="col-lg-6">
+  					   		  			<label for="inputEmail" class="control-label control-label-light">Confirm Password</label>
+  					   		  			<input type="password" class="form-control">
+  		   		     		  	</div>
+	   		     		  	</div>
+
+
+   				   		</div>
+
+				   		<div class="form-group">
+				   		  <label for="inputEmail" class="col-lg-3 control-label">Post Code</label>
+				   		  <div class="col-lg-9">
+				   		  		<div class="col-lg-12">
+				   		  			<input type="text" class="form-control" placeholder="Post Code">  
+				   		  		</div>
+				   		  		
+				   		  </div>
+				   		</div>
+
+				   		<div class="form-group">
+				   		  <label for="inputEmail" class="col-lg-3 control-label">Postal Address</label>
+				   		  <div class="col-lg-9">
+				   		  		<div class="col-lg-12">
+				   		  			<textarea class="form-control"  placeholder="Postal Address"></textarea> 
+				   		  		</div>
+				   		  		
+				   		  </div>
+				   		</div>
+				   	  
+				   	</form>
+				  </div>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="panel panel-primary">
+				  <div class="panel-heading">
+				    <h3 class="panel-title"><i class="fa fa-truck fa-lg"></i> Delivery Information</h3>
+				  </div>
+				  <div class="panel-body">
+				   			   	<form class="form-horizontal">
+
+				   			   		<div class="form-group">
+				   			   		  <label for="inputEmail" class="col-lg-4 control-label">Same as Postal Address</label>
+				   			   		  <div class="col-lg-8">
+				   			   		  		<div class="btn-group">
+				   			   		  	    	<label class="btn btn-default" ng-model="coustomer.sameaddress" btn-radio="'true'">Yes</label>
+				   			   		  	    	<label class="btn btn-default" ng-model="coustomer.sameaddress" btn-radio="">No</label>
+				   			   		  	  </div>
+				   			   		  </div>
+				   			   		</div>
+
+
+				   			   		<div ng-hide="coustomer.sameaddress">
+				   			   						   		<div class="form-group">
+				   			   						   		  <label for="inputEmail" class="col-lg-3 control-label">State and City</label>
+				   			   						   		  <div class="col-lg-9">
+				   			   						   		  	<div class="col-lg-6">
+				   			   										<select name="" class="form-control">
+				   			   											<option value="">Select a state</option>
+				   			   										</select>
+				   			   						   		  	</div>
+				   			   			   		  	   		  	<div class="col-lg-6">
+				   			   			   		  					<select name="" class="form-control">
+				   			   			   		  						<option value="">Select a City</option>
+				   			   			   		  					</select>
+				   			   			   		  	   		  	</div>
+				   			   						   		  </div>
+				   			   						   		</div>
+				   			   						   		
+				   			   						   		<div class="form-group">
+				   			   						   		  <label for="inputEmail" class="col-lg-3 control-label">Post Code</label>
+				   			   						   		  <div class="col-lg-9">
+				   			   						   		  		<div class="col-lg-12">
+				   			   						   		  			<input type="text" class="form-control" placeholder="Post Code">  
+				   			   						   		  		</div>
+				   			   						   		  		
+				   			   						   		  </div>
+				   			   						   		</div>
+
+				   			   						   		<div class="form-group">
+				   			   						   		  <label for="inputEmail" class="col-lg-3 control-label">Delivery Address</label>
+				   			   						   		  <div class="col-lg-9">
+				   			   						   		  		<div class="col-lg-12">
+				   			   						   		  			<textarea class="form-control"  placeholder="Delivery Address"></textarea> 
+				   			   						   		  		</div>
+				   			   						   		  		
+				   			   						   		  </div>
+				   			   						   		</div>
+				   			   		</div>
+				   			   	  
+				   			   	</form>
+				  </div>
+				</div>
+
+				<div class="panel panel-primary">
+				  <div class="panel-heading">
+				    <h3 class="panel-title"><i class="fa fa-plus-square fa-lg"></i>  Registration Information</h3>
+				  </div>
+				  <div class="panel-body">
+				   				   	<form class="form-horizontal">
+				   				   		<div class="col-lg-6">
+				   				   			<div class="form-group">
+				   				   			  <label for="inputEmail" class="col-lg-7 control-label">Guest Checkout</label>
+				   				   			  <div class="col-lg-5">
+				   				   			  		<div class="btn-group">
+				   				   			  	    	<label class="btn btn-default btn-sm" ng-model="coustomer.guestcheckout" btn-radio="'1'">Yes</label>
+				   				   			  	    	<label class="btn btn-default btn-sm" ng-model="coustomer.guestcheckout" btn-radio="'0'">No</label>
+				   				   			  	  </div>
+				   				   			  </div>
+				   				   			</div>
+
+				   				   			<div class="form-group">
+				   				   			  <label for="inputEmail" class="col-lg-7 control-label">Email verification required</label>
+				   				   			  <div class="col-lg-5">
+				   				   			  		<div class="btn-group">
+				   				   			  	    	<label class="btn btn-default btn-sm" ng-model="coustomere.everification" btn-radio="'1'">Yes</label>
+				   				   			  	    	<label class="btn btn-default btn-sm" ng-model="coustomere.everification"  btn-radio="'0'">No</label>
+				   				   			  	  </div>
+				   				   			  </div>
+				   				   			</div>
+				   				   		</div>
+
+				   				   		<div class="col-lg-6">
+				   				   			<div class="form-group">
+				   				   			  <label for="inputEmail" class="col-lg-7 control-label">Enable Customers</label>
+				   				   			  <div class="col-lg-5">
+				   				   			  		<div class="btn-group">
+				   				   			  	    	<label class="btn btn-default btn-sm" ng-model="coustomer.enable" btn-radio="'1'">Yes</label>
+				   				   			  	    	<label class="btn btn-default btn-sm" ng-model="coustomer.enable" btn-radio="'0'">No</label>
+				   				   			  	  </div>
+				   				   			  </div>
+				   				   			</div>
+
+				   				   			<div class="form-group">
+				   				   			  <label for="inputEmail" class="col-lg-7 control-label">Subscribe to Newsletter</label>
+				   				   			  <div class="col-lg-5">
+				   				   			  		<div class="btn-group">
+				   				   			  	    	<label class="btn btn-default btn-sm" ng-model="coustomer.newsletter" btn-radio="'1'">Yes</label>
+				   				   			  	    	<label class="btn btn-default btn-sm" ng-model="coustomer.newsletter" btn-radio="'0'">No</label>
+				   				   			  	  </div>
+				   				   			  </div>
+				   				   			</div>
+				   				   		</div>
+
+				   				   		
+
+				   				   		
+
+
+
+
+				   				   		
+
+				   				   		
+
+				   				   		
+				   				   	  
+				   				   	</form>
+				  </div>
+				</div>
+			</div>
+		</div>
+
+		<ui-select ng-model="coustomer.selected" theme="bootstrap" ng-hide="coustomer.type">
+		 	<ui-select-match placeholder="Select Coustomer">{{$select.selected.name}}</ui-select-match>
+		 	<ui-select-choices repeat="c in coustomers | filter:$select.search">
+		 	  {{c.name}}
+		 	</ui-select-choices>
+		 </ui-select>
+
+
+
+
+      </tab>
+
+      <tab>
+        <tab-heading>
+          <span class='badge'>3</span> Payment
+        </tab-heading>
+        
+        <div class="well well-sm">
+          	<div class="btn-group" ng-init="payment.type='cash'">
+              	<label class="btn btn-default" ng-model="payment.type" btn-radio="'cash'">Cash On Delivery </label>
+              	<label class="btn btn-default" ng-model="payment.type" btn-radio="'card'">Via Credit Card</label>
+            </div>
+        </div>
+       
+        <div class="panel panel-primary" ng-if="payment.type=='card'">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-credit-card fa-lg"></i> Credit Card Payment</h3>
+          </div>
+          <div class="panel-body">
+          					   	<form class="form-horizontal">
+
+          					   		<div class="form-group">
+          					   		  <label for="inputEmail" class="col-lg-3 control-label">Card Holder's Name</label>
+          					   		  <div class="col-lg-9">
+          					   		  	<div class="col-lg-12"><input type="text" class="form-control" placeholder="Name on the  card"></div>
+          					   		  </div>
+          					   		</div>
+
+
+          					   		<div class="form-group">
+          					   		  <label for="inputEmail" class="col-lg-3 control-label">Card Expiry Date</label>
+          					   		  <div class="col-lg-9">
+          					   		  	<div class="col-lg-6">
+          									<select name="" class="form-control">
+          										<option value="">January</option>
+          									</select>
+          					   		  	</div>
+          		   		  	   		  	<div class="col-lg-6">
+          		   		  					<select name="" class="form-control">
+          		   		  						<option value="">2015</option>
+          		   		  					</select>
+          		   		  	   		  	</div>
+          					   		  </div>
+          					   		</div>
+
+          					   		<div class="form-group">
+          					   		  <label for="inputEmail" class="col-lg-3 control-label">Card Number</label>
+          					   		  <div class="col-lg-9">
+          					   		  	<div class="col-lg-3">
+          					   		  		<input type="text" class="form-control">
+          					   		  	</div>
+          		   		  	   		  	<div class="col-lg-3">
+          		   		  					<input type="text" class="form-control">
+          		   		  	   		  	</div>
+  	   		  				   		  	<div class="col-lg-3">
+  	   		  				   		  		<input type="text" class="form-control">
+  	   		  				   		  	</div>
+  	   		  	   		  	   		  	<div class="col-lg-3">
+  	   		  	   		  					<input type="text" class="form-control">
+  	   		  	   		  	   		  	</div>
+          					   		  </div>
+          					   		</div>
+
+          					   		<div class="form-group">
+          					   		  <label for="inputEmail" class="col-lg-3 control-label">Card CVV</label>
+          					   		  <div class="col-lg-9">
+          					   		  	<div class="col-lg-12"><input type="text" class="form-control" ></div>
+          					   		  </div>
+          					   		</div>
+
+          					   		
+          					   	</form>
+          </div>
+        </div>
+
+      </tab>
+
+      <tab>
+        <tab-heading>
+          <span class='badge'>4</span> Confirmation
+        </tab-heading>
+        <div class="well well-sm">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="alert alert-dismissible alert-success">
+                <strong>Your Order Succesfully Has Been Placed</strong>
+              </div>
+
+              <div class="row">
+              	<div class="col-lg-6">
+              		<div class="panel panel-primary">
+              		  <div class="panel-heading">
+              		    <h3 class="panel-title">Order Details</h3>
+              		  </div>
+              		  <div class="panel-body trim">
+              		   	<table class="table table-striped table-bordered table-condensed">
+              		   		<tr>
+              		   			<td class="text-strong">Order No. :</td>
+              		   			<td> #410931</td>
+              		   		</tr>
+              		   		<tr>
+              		   			<td class="text-strong">Order Date :</td>
+              		   			<td>11-06-2015</td>
+              		   		</tr>
+              		   		<tr>
+              		   			<td class="text-strong">Status</td>
+              		   			<td>complete</td>
+              		   		</tr>
+              		   		<tr>
+              		   			<td class="text-strong">Estimated Delivery Time :</td>
+              		   			<td></td>
+              		   		</tr>
+              		   		<tr>
+              		   			<td class="text-strong">Total Items :</td>
+              		   			<td></td>
+              		   		</tr>
+              		   		<tr>
+              		   			<td class="text-strong">Total Price :</td>
+              		   			<td></td>
+              		   		</tr>
+              		   		<tr>
+              		   			<td class="text-strong">Deleivery Address :</td>
+              		   			<td></td>
+              		   		</tr>
+              		   		<tr>
+              		   			<td class="text-strong">Website Name :</td>
+              		   			<td></td>
+              		   		</tr>
+              		   	</table>
+              		   	</div>
+              		  
+              		</div>
+              	</div>
+              	
+              	<div class="col-lg-6">
+              		<div class="panel panel-primary">
+              		  <div class="panel-heading">
+              		    <h3 class="panel-title">Customer Information</h3>
+              		  </div>
+              		  	
+              		  	<table class="table table-striped table-bordered table-condensed">
+              		  		<tr>
+              		  			<td class="text-strong">Customer Name</td>
+              		  			<td>Md ROny</td>
+              		  		</tr>
+              		  		<tr>
+              		  			<td class="text-strong">Email :</td>
+              		  			<td>dasd@dads.com</td>
+              		  		</tr>
+              		  		<tr>
+              		  			<td class="text-strong">Phone Number : </td>
+              		  			<td></td>
+              		  		</tr>
+              		  		<tr>
+              		  			<td class="text-strong">Cell Number :</td>
+              		  			<td></td>
+              		  		</tr>
+              		  		<tr>
+              		  			<td class="text-strong">Address : </td>
+              		  			<td></td>
+              		  		</tr>
+              		  		<tr>
+              		  			<td class="text-strong">Delivery Address :</td>
+              		  			<td></td>
+              		  		</tr>
+
+              		  		<tr>
+              		  			<td class="text-strong"><br></td>
+              		  			<td></td>
+              		  		</tr>
+              		  		<tr>
+              		  			<td class="text-strong"><br></td>
+              		  			<td></td>
+              		  		</tr>
+              		  		
+              		  	</table>
+              		  	
+              		  </div>
+              		</div>
+              	</div>
+				
+					    <table class="table table-top table-striped table-bordered table-hover table-condensed">
+					    	<tr>
+					    		<th>No.</th>
+					    		<th>Item</th>
+					    		<th>Special Notes</th>
+					    		<th>QYT</th>
+					    		<th>Price</th>
+					    		<th>Vat</th>
+					    		<th>Total Price</th>
+					    		<th>Points Earned</th>
+					    		<th class="disable"></th>
+					    	</tr>
+
+					    	<tr ng-repeat="item in selecteditems">
+					    		<td>{{$index+1}}</td>
+					    		<td>{{item.name}}</td>
+					    		<td>
+					    			Lorem ipsum dolor sit amet
+					    		</td>
+					    		<td>{{item.qyt}}</td>
+					    		<td>{{item.price |currency}}</td>
+					    		<td>{{0 |currency}}</td>
+					    		<td>{{ (item.price + item.extra) * item.qyt |currency}}</td>
+					    		<td>0</td>
+					    		<td><center><i class="fa fa-trash-o fa-lg icon" ng-click="removeItem($index)"></i></center></td>
+					    	</tr>
+
+					    	<tr>
+					    		<td><br></td>
+					    		<td></td>
+					    		<td></td>
+					    		<td></td>
+					    		<td></td>
+					    		<td></td>
+					    		<td></td>
+					    		<td></td>
+					    		<td></td>
+					    	</tr>
+					    	
+					    	
+					    	
+
+				    	</table>
+				    	<div class="vsap"></div>
+				    	<div class="vsap"></div>
+
+
+		    	<div class="row">
+		    		<div class="col-lg-6">
+		    			<div class="panel panel-primary">
+		    			  <div class="panel-heading">
+		    			    <h3 class="panel-title">Notes By Admin</h3>
+		    			  </div>
+		    			  <div class="panel-body">
+		    			    <textarea class="form-control"></textarea>
+		    			  </div>
+		    			</div>
+		    		</div>
+
+		    		<div class="col-lg-3 pull-right">
+		    			<div class="vsap"></div>
+		    			<div class="vsap"></div>
+		    			<div class="btn-group" dropdown>
+		    			  <button type="button" class="btn btn-info">Order Status</button>
+		    			  <button type="button" class="btn btn-info dropdown-toggle" dropdown-toggle>
+		    			    <span class="caret"></span>
+		    			    <span class="sr-only">Split button!</span>
+		    			  </button>
+		    			  <ul class="dropdown-menu" role="menu">
+		    			   	<li><a href="">Received</a></li>
+		    			   	<li><a href="">Hold</a></li>
+		    			   	<li><a href="">Cancle</a></li>
+		    			   	<li><a href="">Cooking</a></li>
+		    			   	<li><a href="">Delivery</a></li>
+		    			   	<li><a href="">Complete</a></li>
+		    			  </ul>
+		    			</div>
+
+		    			<div class="btn-group" dropdown>
+		    			  <button type="button" class="btn btn-success">Print</button>
+		    			  <button type="button" class="btn btn-success dropdown-toggle" dropdown-toggle>
+		    			    <span class="caret"></span>
+		    			    <span class="sr-only">Split button!</span>
+		    			  </button>
+		    			  <ul class="dropdown-menu" role="menu">
+		    			   	<li><a href="">Print</a></li>
+		    			   	<li><a href="">Pos Print</a></li>
+		    			  </ul>
+		    			</div>
+		    		</div>
+		    	</div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </tab>
+      
+    </tabset>
+  </div>
+  <ul class="pager">
+    <li class="previous disabled"><a href="#">← Back</a></li>
+    <li class="next"><a href="#">Next →</a></li>
+  </ul>
+</div>

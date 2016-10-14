@@ -1,0 +1,63 @@
+<h1 class="page-header">
+	Admin Log
+</h1>
+<div class="vsap"></div>
+<div class="vsap"></div>
+<div class="well well-sm">
+	<div class="row">
+		<div class="col-md-12">
+		
+			<div class="pull-right">
+				<a ng-click="takebackup()" class="btn btn-success"><i class="fa fa-floppy-o"></i> Take New Backup</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-2 col-md-2">
+		<div class="m-sidebar">
+			
+		</div>
+	</div>
+
+	
+
+	<div class="col-lg-10 col-md-10">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+			<h3 class="panel-title">Backups</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-top table-striped table-bordered table-hover table-condensed">
+					<tr>
+						<th>Username</th>
+						<th>Date</th>
+						<th></th>
+					</tr>
+
+					<tr class="row-filter">
+						<td><input type="text" ng-model="items.search.username"></td>
+						<td><input type="text" ng-model="items.search.date"></td>
+						<td class="disable"></td>
+					</tr>
+
+					<tr ng-repeat="item in backups |filter:items.search">
+						<td>{{item.username}}</td>	
+						<td>{{item.date}}</td>
+						<td><a ng-click="restore()" class="btn btn-warning btn-sm"><i class="fa fa-undo"></i> Restore</a></td>
+					</tr>
+
+
+
+
+
+
+
+				</table>
+
+
+			</div>
+		</div>
+	</div>
+</div>

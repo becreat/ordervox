@@ -1,0 +1,51 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title"><i class="fa fa-sellsy"></i> SMS Usage</h3>
+  </div>
+  <div class="panel-body">
+  	     		<table class="table table-top table-striped table-bordered table-hover table-condensed">
+  			    	<tr>
+                <th>No.</th>
+                <th>Restaurant Name</th>
+                <th>SMS Used</th>
+                <th>Credits left</th>
+                <th>Total Credits</th>
+                <th class="disable"></th>
+  			    	</tr>
+
+  			    	<tr class="row-filter">
+  			    		<td width="2%" class="disable"></td>
+  			    		<td><input type="text" ng-model="items.search.restaurant"></td>
+                <td><input type="text" ng-model="items.search.used"></td>
+                <td><input type="text" ng-model="items.search.left"></td>
+                <td></td>
+  			    		
+  			    	</tr>
+
+  			    	<tr ng-repeat="item in smausages |filter:items.search">
+  			    		<td>
+  			    			{{$index+1}}
+  			    		</td>
+  			    		<td>{{item.restaurant}}</td>
+                <td>{{item.used}}</td>
+                <td>{{item.total-item.used}}</td>
+  			    		<td class="field-edit"><input type="number" ng-model="item.total" ng-blur="save()"></td>
+                <td>
+                  <center>
+                    <a  ng-click="allocate($index)" class="btn btn-sm btn-success"><i class="fa fa-save"></i>Save</a>
+                    <a  ui-sref="sms.usagesdetails" class="btn btn-sm btn-warning"><i class="fa fa-file-o"></i>Details</a>
+                    <!-- <a  ng-click="allocate($index)" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>Allocate</a>
+                    <a  ng-click="retain($index)" class="btn btn-sm btn-danger"><i class="fa fa-minus"></i> Retain</a> -->
+                  </center>
+                </td>
+  			    	</tr>
+
+  			    
+  			    	
+  			    	
+  			    	
+  			    	
+
+  		    	</table>
+  </div>
+</div>

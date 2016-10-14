@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>OrderVox-Administrator</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/angular-chart.css">
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://cdn.rawgit.com/angular-ui/ui-select/v0.11.2/dist/select.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body ng-app="OrderVoxAdmin">
+	<div class="l-brand-bar"></div>
+	<div class="header">
+		<nav class="navbar navbar-default fixed mainnavigation">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" ng-init="navCollapsed=true" ng-click="navCollapsed = !navCollapsed" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		       
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-class="{'in':!navCollapsed}">
+		      <ul class="nav navbar-nav mainnavigation">
+		        
+		        <li ui-sref-active="active"><a ui-sref="dashboard"><i class="fa fa-tachometer fa-large"></i> Dashboard <span class="sr-only">(current)</span></a></li>
+
+		        <li class="dropdown" dropdown ui-sref-active-eq="active">
+		          
+		          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" dropdown-toggle>
+		          	<i class="fa fa-cutlery fa-lg"></i> 
+		          	Restaurant <span class="caret"></span>
+		          </a>
+		          
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a ui-sref-active="active" ui-sref="sales.neworder">Manage Sales</a></li>
+		            <li><a ui-sref-active="active" ui-sref="catalog.manageitem">Menu Catalog</a></li>
+		            <li><a ui-sref-active="active" ui-sref="coustomer.managecoustomer">Manage Customers</a></li>
+		            <li><a ui-sref-active="active" ui-sref="review.managereview">Customer Reviews</a></li>
+		          </ul>
+
+		        </li>
+
+		        <li class="dropdown" dropdown>
+		          
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" dropdown-toggle>
+		          	<i class="fa fa-bars fa-lg"></i> 
+		          	Design <span class="caret"></span>
+		          </a>
+		          
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a ui-sref="page.managepage">Manage Pages</a></li>
+		            <li><a ui-sref="widget">Manage Widget</a></li>
+		            <li><a ui-sref="slider">Manage Slider</a></li>
+		            <li><a ui-sref="design">Design Customization</a></li>
+		          </ul>
+
+		        </li>
+
+		         <li class="dropdown" dropdown>
+		          
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" dropdown-toggle>
+		          	<i class="fa fa-rocket fa-lg"></i> 
+		          	Marketing <span class="caret"></span>
+		          </a>
+		          
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a ui-sref="emailmarketing.manageNewsletter">Email Marketing</a></li>
+		            <li><a ui-sref="sms.managecampaign">SMS</a></li>
+		            <li><a ui-sref="discount.manageoffer">Discount Offer</a></li>
+		            <!-- <li><a href="">Apps Marketing</a></li> -->
+		            <li><a ui-sref="managesubscriber">Manage Subscriber</a></li>
+		          </ul>
+
+		        </li>
+				
+				
+		         <li class="dropdown" dropdown>
+		          
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" dropdown-toggle>
+		          	<i class="fa fa-gift fa-lg"></i> 
+		          	Gift Card <span class="caret"></span>
+		          </a>
+		          
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a ui-sref="giftcard.manageGiftcards">Manage Gift Card</a></li>
+		          </ul>
+
+		        </li>
+
+		         <li class="dropdown" dropdown>
+		          
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" dropdown-toggle>
+		          	<i class="fa fa-plus-circle fa-lg"></i> 
+		          	Loyalty Point <span class="caret"></span>
+		          </a>
+		          
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a  ui-sref="loyaltypoint">Customer Points</a></li>
+		          </ul>
+
+		        </li>
+
+		         <li class="dropdown" dropdown>
+		          
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" dropdown-toggle>
+		          	<i class="fa fa-table fa-lg"></i> 
+		          	Table Booking <span class="caret"></span>
+		          </a>
+		          
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a ui-sref="tablebooking.managebooking">Manage Bookings</a></li>
+		            <li><a ui-sref="tablebooking.managetables">Manage Tables</a></li>
+		          </ul>
+
+		        </li>
+				
+				
+		         <li class="dropdown" dropdown>
+		          
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" dropdown-toggle>
+		          	<i class="fa fa-gavel fa-lg"></i> 
+		          	Build Restaurant <span class="caret"></span>
+		          </a>
+		          
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a ui-sref="restaurant.manage">Manage Restaurant</a></li>
+		            <li><a ui-sref="package.manage">Restaurant Package</a></li>
+		            <li><a ui-sref="theme">Manage Theme</a></li>
+		          </ul>
+
+		        </li>
+
+		        <li class="dropdown" dropdown>
+		          
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" dropdown-toggle>
+		          	<i class="fa fa-wrench fa-lg"></i> 
+		          	System <span class="caret"></span>
+		          </a>
+		          
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="">Transactional Emails</a></li>
+		            <li><a ui-sref="salsereport">Sales Report</a></li>
+		            <li><a ui-sref="deliverymanager">Delivery Manager</a></li>
+		            <li><a ui-sref="managesystemuser.manage">Manage System Users</a></li>
+		            <li><a ui-sref="adminlog">Admin Logs</a></li>
+		            <li><a ui-sref="dbbackup">Database Backup</a></li>
+		            <li><a ui-sref="resturentsetting">Resturent</a></li>
+		            <li><a ui-sref="vat">VAT</a></li>
+		          </ul>
+
+		        </li>
+		      
+
+
+		        
+
+		      </ul>
+		      
+		     
+		     
+		      <ul class="nav navbar-nav navbar-right">
+		      	<li class="dropdown" dropdown>
+		      	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" dropdown-toggle><i class="fa fa-user fa-lg"></i> Super Admin <span class="caret"></span></a>
+		      	  
+		      	  <ul class="dropdown-menu" role="menu">
+		      	    <li><a href="#"><i class="fa fa-life-ring"></i> Help</a></li>
+		      	    <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+		      	    <li class="divider"></li>
+		      	    <li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+		      	  </ul>
+
+		      	</li>
+		      </ul>
+
+
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+	</div>
+
+
+	<div class="container-fluid viewloared" ui-view>
+		
+		
+
+	</div>
+
+
+	
+	<script src="js/jquery-2.1.3.min.js"></script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/ui-bootstrap.min.js"></script>
+	<script src="js/angular-ui-router.min.js"></script>
+	<script src="js/ng.animate.js"></script>
+
+ 	<script src="js/angular-sanitize.min.js"></script>
+  	<script src="js/ui-select.js"></script>
+	
+
+
+	<script src="js/administrator.js"></script>
+	<script src='js/textAngular.min.js'></script>
+	
+	
+
+</body>
+</html>

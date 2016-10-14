@@ -1,0 +1,151 @@
+<div class="well well-sm">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pull-right">
+        <!-- <a ui-sref="discount.createoffer" class="btn btn-success">Import Offers</a> -->
+        <a class="btn btn-info" ng-click="toggleModal=true">Import Offer</a>
+        <a ui-sref="discount.createoffer" class="btn btn-success">Create Offer</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Manage Offers</h3>
+  </div>
+  <div class="panel-body">
+  	     		<table class="table table-top table-striped table-bordered table-hover table-condensed">
+  			    	<tr>
+                <th></th>
+  			    		<th>Offer Name</th>
+                <th>Offer Amount </th>
+                <th>Created Date  </th>
+                <th>Offer Status   </th>
+                <th>Coupon Usage  </th>
+  			    		<th>Expiry Date</th>
+                <th>Restaurant Name</th>
+  			    		<th>
+  			    			<center>
+  			    				<div class="btn-group" dropdown>
+  			    				  <button type="button" class="btn btn-xs btn-default">Action</button>
+  			    				  <button type="button" class="btn btn-xs btn-default dropdown-toggle" dropdown-toggle>
+  			    				    <span class="caret"></span>
+  			    				  </button>
+  			    				  <ul class="dropdown-menu" role="menu">
+                        <li><a href="" ng-click="">Enable</a></li>
+                        <li><a href="" ng-click="">Disable</a></li>
+                        <li><a href="" ng-click="">Delete</a></li>
+  			    				   	<li><a href="" ng-click="">Export</a></li>
+  			    				  </ul>
+  			    				</div>
+
+  			    			</center>
+  			    		</th>
+  			    	</tr>
+
+  			    	<tr class="row-filter">
+  			    		<td width="2%" class="disable"></td>
+                <td><input type="text" ng-model="items.search.name"></td>
+  			    		<td><input type="text" ng-model="items.search.amount"></td>
+                <td><input type="text" ng-model="items.search.date"></td>
+                <td>
+                  <select  ng-model="items.search.status">
+                    <option value="">All</option>
+                    <option value="enable">Enable</option>
+                    <option value="disable">Disable</option>
+                  </select>
+                </td>
+                <td>
+                  <select  ng-model="items.search.cuponstatus">
+                    <option value="">All</option>
+                    <option value="notused">Not Used</option>
+                    <option value="using">Using</option>
+                    <option value="used">Used</option>
+                    <option value="expired">Expired</option>
+                  </select>
+                </td>
+                <td><input type="text" ng-model="items.search.exdate"></td>
+                <td><input type="text" ng-model="items.search.resturent"></td>
+                <td></td>
+  			    		
+  			    	</tr>
+
+  			    	<tr ng-repeat="item in offers |filter:items.search">
+  			    		<td>
+  			    			<input type="checkbox"  ng-click="checkedItem($index)" />
+  			    		</td>
+  			    		<td>{{item.name}}</td>
+                <td>{{item.amount}}</td>
+                <td>{{item.date}}</td>
+                <td><span class="label label-{{item.offerstatus}}">{{item.offerstatus}}</span></td>
+  			    		<td><span class="label label-{{item.couponstatus}}">{{item.couponstatus}}</span></td>
+                <td>{{item.exdate}}</td>
+                <td>{{item.resturent}}</td>
+               
+                <td>
+                  <center>
+                    <a  ui-sref="discount.createoffer" class="btn btn-xs btn-warning">Edit</a>
+                  </center>
+                </td>
+  			    	</tr>
+
+  			    
+  			    	
+  			    	
+  			    	
+  			    	
+
+  		    	</table>
+
+              <div class="modal ng-modal" ng-show="toggleModal">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header btn-primary">
+                      <button type="button" class="close" ng-click="toggleModal=flase">×</button>
+                      <h4 class="modal-title">Import Offers</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-top table-striped table-bordered table-hover table-condensed">
+                          <tr>
+                            <th>No.</th>
+                            <th>Offer Name</th>
+                            <th>Offer Amount </th>
+                            <th>Created Date  </th>
+                            <th>Offer Status   </th>
+                            <th>Coupon Usage  </th>
+                            <th>Expiry Date</th>
+                            <th>Restaurant Name</th>
+                          </tr>
+                          <tr>
+                            <td><br></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td><br></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          </table>
+                          <input type="file" class="form-control">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-success" ng-click="saveSlider()">Import</button>
+                      <button type="button" class="btn btn-default" ng-click="toggleModal=flase">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  </div>
+</div>

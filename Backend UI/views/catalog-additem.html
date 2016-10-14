@@ -1,0 +1,296 @@
+<div class="well well-sm">
+	<div class="row">
+		<div class="col-md-12">
+		
+			<div class="pull-right">
+				<a href="" class="btn btn-default">Back</a>
+				<a href="" class="btn btn-danger">Cancle</a>
+				<a href="" class="btn btn-success">Save</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="vsap"></div>
+
+<div class="row ">
+	
+	<div class="col-lg-6">
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+		    <h3 class="panel-title"><i class="fa fa-file-text file-lg"></i>Item Information</h3>
+		  </div>
+		  <div class="panel-body">
+		    <form class="form-horizontal">
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Item Code</label>
+		    	  <div class="col-lg-10"><input type="text" class="form-control" placeholder="Item Code"></div>
+		    	</div>
+
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Item Name</label>
+		    	  <div class="col-lg-10"><input type="text" class="form-control" placeholder="Item Name"></div>
+		    	</div>
+
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Item Short Name</label>
+		    	  <div class="col-lg-10"><input type="text" class="form-control" placeholder="Item Short Name"></div>
+		    	</div>
+
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Catagories</label>
+		    	  <div class="col-lg-10">
+		    	  		<div class="btn-group">   
+		    	  	        <label class="btn btn-default btn-sm" ng-model="category.o" btn-checkbox="''">Starter</label>
+		    	  	        <label class="btn btn-default btn-sm" ng-model="category.t" btn-checkbox="''">Kebab</label>
+		    	  	        <label class="btn btn-default btn-sm" ng-model="category.th" btn-checkbox>Byriani</label>
+		    	  	        <label class="btn btn-default btn-sm" ng-model="category.f" btn-checkbox>Starter</label>
+		    	  	        <label class="btn btn-default btn-sm" ng-model="category.a" btn-checkbox>Kebab</label>
+		    	  	        <label class="btn btn-default btn-sm" ng-model="category.w" btn-checkbox>Byriani</label>
+		    	  	    </div>
+		    	  </div>
+		    	</div>
+
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Item Image</label>
+		    	  <div class="col-lg-10"><input type="file" name="" id=""></div>
+		    	</div>
+
+		    	<div class="form-group">
+		    		<div class="col-lg-2"></div>
+		    		<div class="col-lg-3">
+		    			<label for="inputEmail" class="control-label">Earn Loyalty points</label>
+	    	  			<div class="vsap"></div>
+	    	  			<div class="btn-group">   
+	    	  		        <label class="btn btn-default" ng-model="lpoint" btn-radio="'yes'">Yes</label>
+	    	  		        <label class="btn btn-default" ng-model="lpoint" btn-radio="'no'">No</label>
+	    	  		    </div>
+    	  		    </div>
+
+	    	  		<div class="col-lg-3">
+
+	    	  		    <label for="inputEmail" class="control-label">Display in Home Page</label>
+	    	  			<div class="vsap"></div>
+	    	  			<div class="btn-group">   
+	    	  		        <label class="btn btn-default" ng-model="isHome" btn-radio="'yes'">Yes</label>
+	    	  		        <label class="btn btn-default" ng-model="isHome" btn-radio="'no'">No</label>
+	    	  		    </div>
+    	  		    </div>
+
+	    	  		<div class="col-lg-3">
+
+	    	  		    <label for="inputEmail" class="control-label">Enable Item</label>
+	    	  			<div class="vsap"></div>
+	    	  			<div class="btn-group">   
+	    	  		        <label class="btn btn-default" ng-model="isEnable" btn-radio="'yes'">Yes</label>
+	    	  		        <label class="btn btn-default" ng-model="isEnable" btn-radio="'no'">No</label>
+	    	  		    </div>
+    	  		    </div>
+		    	</div>
+
+		    	<div class="vsap"></div>
+
+	    		<div class="form-group">
+	    		  <label for="inputEmail" class="col-lg-2 control-label">Item Note</label>
+	    		  <div class="col-lg-10"><textarea class="form-control"></textarea></div>
+	    		</div>
+
+		    		
+		    	
+
+		    	
+
+	    	</form>
+		  </div>
+		</div>
+
+	</div>
+
+	<div class="col-lg-6">
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+		    <h3 class="panel-title"><i class="fa fa-eur file-lg"></i>Item Price</h3>
+		  </div>
+		  <div class="panel-body">
+		  		<form class="form-horizontal">	    
+					<div class="btn-group" ng-init="priceType='choise'">   
+		      	        <label class="btn btn-default" ng-model="priceType" btn-radio="'normal'">Normal Price </label>
+			      	    <label class="btn btn-default" ng-model="priceType" btn-radio="'choise'">Price By Choise</label>
+		      	    </div>
+				   
+				    <div ng-if="priceType=='choise'">
+				    	<div class="well" style="zoom:.8;margin-bottom: 0;">
+				    	  <div class="row">
+				    	  	<div class="col-lg-5"><input type="text" ng-model="choise.name" placeholder="Choise Name"></div>
+				    	  	<div class="col-lg-5"><input type="text" ng-model="choise.price" placeholder="Price"></div>
+				    	  	<div class="col-lg-2"><button class="btn btn-info btn-fluid" ng-click="addChoise()">Add choise</button></div>
+				    	  </div>
+				    	</div>
+		    		    
+		    		    <table class="table table-top table-striped table-bordered table-hover table-condensed">
+		    		    	
+		    		    	<tr>
+		    		    		<th>No.</th>
+		    		    		<th>Choise Name</th>
+		    		    		<th>Price</th>
+		    		    		<th class="disable"></th>
+		    		    	</tr>
+
+		    		    	<tr ng-repeat="choise in itemchoise">
+		    		    		<td>{{$index+1}}</td>
+		    		    		<td>{{choise.name}}</td>
+		    		    		<td>{{choise.price |currency}}</td>
+		    		    		
+		    		    		<td><center><i class="fa fa-trash-o fa-lg icon" ng-click="removeChoise($index)"></i></center></td>
+		    		    	</tr>
+
+		    		    	
+		    		    	<tr>
+		    		    		<td><br></td>
+		    		    		<td></td>
+		    		    		<td></td>
+		    		    		<td></td>
+		    		    		
+		    		    	</tr>
+		    		    	
+		    		    	
+
+		    	    	</table>
+			    		
+
+				    </div>
+
+				    <div ng-if="priceType=='normal'">
+				    	<div class="well">
+				    		<div class="form-group">
+				    		  <label for="inputEmail" class="col-lg-1 control-label">PRICE </label>
+				    		  <div class="col-lg-9"> <input type="text" class="form-control"></div>
+				    		</div>
+				    	</div>
+				    </div>
+			    </form>
+
+			    <div class="vsap"></div>
+			      		<form class="form-horizontal">
+			    		    
+			    			<div class="btn-group" ng-init="addons='no'">   
+			    	      	    <label class="btn btn-default" ng-model="addons" btn-radio="'no'">No Add-ons</label>
+			          	        <label class="btn btn-default" ng-model="addons" btn-radio="'yes'">Topping & Add-ons</label>
+			          	    </div>
+			    		   
+			    		    <div ng-if="addons=='yes'">
+			    		    	
+			    		    	<div class="well" style="zoom:.8;margin-bottom: 0;">
+			    		    	  <div class="row">
+			    		    	  	<div class="col-lg-5"><input type="text" ng-model="topping.name" placeholder="Topping & Add-ons "></div>
+			    		    	  	<div class="col-lg-5"><input type="text" ng-model="topping.price" placeholder="Price"></div>
+			    		    	  	<div class="col-lg-2"><button class="btn btn-info fluid" ng-click="addTopping()">Add</button></div>
+			    		    	  </div>
+			    		    	</div>
+			        		    
+			        		    <table class="table table-top table-striped table-bordered table-hover table-condensed">
+			        		    	
+			        		    	<tr>
+			        		    		<th>No.</th>
+			        		    		<th>Topping & Add-ons</th>
+			        		    		<th>Price</th>
+			        		    		<th class="disable"></th>
+			        		    	</tr>
+
+			        		    	<tr ng-repeat="a in toppings">
+			        		    		<td>{{$index+1}}</td>
+			        		    		<td>{{a.name}}</td>
+			        		    		<td>{{a.price |currency}}</td>
+			        		    		
+			        		    		<td><center><i class="fa fa-trash-o fa-lg icon" ng-click="removeaddons($index)"></i></center></td>
+			        		    	</tr>
+
+			        		    	
+			        		    	<tr>
+			        		    		<td><br></td>
+			        		    		<td></td>
+			        		    		<td></td>
+			        		    		<td></td>
+			        		    		
+			        		    	</tr>
+			        		    
+			        	    	</table>			    	    	
+			    		</div>
+
+			    		<div class="vsap"></div>
+
+						
+	    	    </form>
+	    		
+	    		<button type="button" class="btn btn-default" ng-model="singleModel" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">Promotional Price</button>
+				<div class="vsap"></div>
+				
+				<form class="form-horizontal" ng-if="singleModel=='1'">
+					<div class="form-group">
+					  <label for="inputEmail" class="col-lg-3 control-label">Discount Percentage </label>
+					  <div class="col-lg-9"> <input type="text" class="form-control" placeholder="by %"></div>
+					</div>
+
+					<div class="form-group">
+					  <label for="inputEmail" class="col-lg-3 control-label">Define Promotional Price</label>
+					  <div class="col-lg-9">
+			  				<div class="btn-group" ng-init="ppriceType='one'">   
+			  		      	    <label class="btn btn-default" ng-model="ppriceType" btn-radio="'one'">Specifics date to date</label>
+			  	      	        <label class="btn btn-default" ng-model="ppriceType" btn-radio="'two'">Select specific days in weeks</label>
+			  	      	    </div>
+					  </div>
+					</div>
+
+					<div class="form-group" ng-if="ppriceType=='one'">
+					  <div class="col-lg-6">
+					  	 <div class="input-group">
+					  	     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+					  	     <input type="text" class="form-control">
+					  	     
+				  	   		</div>
+					  </div>
+					  <div class="col-lg-6">
+					  	 <div class="input-group">
+					  	     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+					  	     <input type="text" class="form-control">
+					  	     
+				  	   		</div>
+					  </div>
+					</div>
+
+					<center>
+						<div class="btn-group" ng-if="ppriceType!='one'">
+						        <label class="btn btn-default" ng-model="week.mo" btn-checkbox>Mon</label>
+						        <label class="btn btn-default" ng-model="week.tu" btn-checkbox>Tus</label>
+						        <label class="btn btn-default" ng-model="week.web" btn-checkbox>Web</label>
+						        <label class="btn btn-default" ng-model="week.thus" btn-checkbox>Thus</label>
+						        <label class="btn btn-default" ng-model="week.fri" btn-checkbox>Fri</label>
+						        <label class="btn btn-default" ng-model="week.sat" btn-checkbox>Sat</label>
+						        <label class="btn btn-default" ng-model="week.su" btn-checkbox>Su</label>
+						</div>
+					</center>
+						
+				</form>
+
+				<div class="vsap"></div>
+
+				<form class="form-horizontal">
+					<div class="form-group">
+					  <label for="inputEmail" class="col-lg-1 control-label">Vat</label>
+					  <div class="col-lg-11"> 
+					  	<select class="form-control">
+					  		<option value="">Select Vat Class</option>
+					  	</select>
+					  	</div>
+					</div>
+				</form>
+
+
+
+				
+
+		  </div>
+		</div>
+
+	</div>
+
+</div>

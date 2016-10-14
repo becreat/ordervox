@@ -1,0 +1,100 @@
+<div class="well well-sm">
+	<div class="row">
+		<div class="col-md-12">
+		
+			<div class="pull-right">
+				<a href="" class="btn btn-default">Back</a>
+				<a href="" class="btn btn-danger">Cancle</a>
+				<a href="" class="btn btn-success">Save</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+		    <h3 class="panel-title"><i class="fa fa-plus-circle"></i> Create Campaign</h3>
+		  </div>
+		  <div class="panel-body">
+		    <form class="form-horizontal">
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Campaign Name </label>
+		    	  <div class="col-lg-10"><input type="text" class="form-control"></div>
+		    	</div>
+
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Select Template</label>
+		    	  <div class="col-lg-10">
+		    	  	<ui-select ng-model="templeat.selected" theme="bootstrap">
+		    	  		<ui-select-match placeholder="Select Templete">{{$select.selected}}</ui-select-match>
+		    	  		<ui-select-choices repeat="c in templeats | filter:$select.search">
+		    	  		  {{c}}
+		    	  		</ui-select-choices>
+		    	  	</ui-select>
+		    	  </div>
+		    	</div>
+
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Select Areas</label>
+		    	  <div class="col-lg-10">
+		    	  		<div class="btn-group" ng-init="selectreas='no'">   
+		    	  	        <label class="btn btn-default" ng-model="selectreas" btn-radio="'no'">By Postal Code</label>
+		    	  	        <label class="btn btn-default" ng-model="selectreas" btn-radio="'yes'">All</label>
+		    	  	    </div>
+
+		    	  	    <div ng-if="selectreas=='no'">
+		    	  	    	<div class="vsap"></div>
+		    	  	    	<ui-select multiple ng-model="postalcode.selected" theme="bootstrap">
+		    	  	    		<ui-select-match placeholder="Select Postalcodes">{{$item}}</ui-select-match>
+		    	  	    		<ui-select-choices repeat="code in postalcodes | filter:$select.search">
+		    	  	    		  {{code}}
+		    	  	    		</ui-select-choices>
+		    	  	    	</ui-select>
+		    	  	    </div>
+		    	  </div>
+		    	</div>
+
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Select users</label>
+		    	  <div class="col-lg-10">
+		    	  		<div class="btn-group" ng-init="selectuser='no'">   
+		    	  	        <label class="btn btn-default" ng-model="selectuser" btn-radio="'no'">List of users</label>
+		    	  	        <label class="btn btn-default" ng-model="selectuser" btn-radio="'yes'">All</label>
+		    	  	    </div>
+
+		    	  	    <div ng-if="selectuser=='no'">
+		    	  	    	<div class="vsap"></div>
+		    	  	    	<ui-select multiple ng-model="user.selected" theme="bootstrap">
+		    	  	    		<ui-select-match placeholder="Select Users To sent Newsletter">{{$item}}</ui-select-match>
+		    	  	    		<ui-select-choices repeat="u in users | filter:$select.search">
+		    	  	    		  {{u}}
+		    	  	    		</ui-select-choices>
+		    	  	    	</ui-select>
+		    	  	    </div>
+		    	  </div>
+		    	</div>
+
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Send option</label>
+		    	  <div class="col-lg-10">
+		    	  		<div class="btn-group" ng-init="sendoption='no'">   
+		    	  	        <label class="btn btn-default" ng-model="sendoption" btn-radio="'no'">Send Now</label>
+		    	  	        <label class="btn btn-default" ng-model="sendoption" btn-radio="'yes'">Schedule later</label>
+		    	  	    </div>
+
+						<div class="vsap"></div>
+    	  	    	  	<div class="input-group" ng-if="sendoption=='yes'">
+    	  	    	  	 		
+    	  	    	  	     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+    	  	    	  	     <input type="text" class="form-control">
+    	  	    	  	     
+    	  	      	   	</div>
+		    	  </div>
+		    	</div>
+	    	</form>
+		  </div>
+		</div>
+	</div>
+</div>

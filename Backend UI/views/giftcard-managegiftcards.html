@@ -1,0 +1,141 @@
+<div class="well well-sm">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pull-right">
+        <a ui-sref="giftcard.createGiftcard" class="btn btn-success">Create New GiftCard</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title"><i class="fa fa-gift"></i> GiftCards</h3>
+  </div>
+  <div class="panel-body">
+  	     		<table class="table table-top table-striped table-bordered table-hover table-condensed">
+              <tr>
+                <th></th>
+  			    		<th>Card Title</th>
+  			    		<th>Gift card code</th>
+  			    		<th>Amount </th>
+                <th>Created date</th>
+                <th>Expiry date</th>
+                <th>Blance</th>
+                <th> Card Status</th>
+                <th>Email </th>
+                <th>Restaurant</th>
+  			    		<th>
+  			    			<center>
+  			    				<div class="btn-group" dropdown>
+  			    				  <button type="button" class="btn btn-xs btn-default">Action</button>
+  			    				  <button type="button" class="btn btn-xs btn-default dropdown-toggle" dropdown-toggle>
+  			    				    <span class="caret"></span>
+  			    				  </button>
+  			    				  <ul class="dropdown-menu" role="menu">
+                        <li><a href="" ng-click="">Enable</a></li>
+  			    				   	<li><a href="" ng-click="">Disable</a></li>
+  			    				  </ul>
+  			    				</div>
+
+  			    			</center>
+  			    		</th>
+  			    	</tr>
+
+  			    	<tr class="row-filter">
+  			    		<td width="2%" class="disable"></td>
+  			    		<td><input type="text" ng-model="items.search.title"></td>
+                <td><input type="text" ng-model="items.search.code"></td>
+                <td><input type="text" ng-model="items.search.amount"></td>
+                <td><input type="text" ng-model="items.search.createdate"></td>
+                <td><input type="text" ng-model="items.search.expdate"></td>
+                <td><input type="text" ng-model="items.search.blance"></td>
+                <td>
+                  <select ng-model="items.search.status">
+                      <option value="">All</option>
+                      <option value="">Enable</option>
+                      <option value="">Disable</option>
+                      <option value="">Expired</option>
+                      <option value="">Never Used</option>
+                      <option value="">Used</option>                  
+                  </select>
+                </td>
+                <td><input type="text" ng-model="items.search.email"></td>
+                <td><input type="text" ng-model="items.search.resturent"></td>
+                <td width="8%" class="disable"></td>
+  			    		
+  			    	</tr>
+
+  			    	<tr ng-repeat="item in cards |filter:items.search">
+  			    		<td>
+  			    			<input type="checkbox"  ng-click="checkedItem($index)" />
+  			    		</td>
+  			    		<td>{{item.title}}</td>
+                <td>{{item.code}}</td>
+                <td>{{item.amount}}</td>
+                <td>{{item.cmount}}</td>
+                <td>{{item.expdate}}</td>
+  			    		<td>{{item.blance}}</td>
+                <td><span class="label label-default label-{{item.status}}">{{item.status}}</span></td>
+  			    		<td>{{item.email}}</td>
+                <td>{{item.resturent}}</td>
+                <td>
+                  <center>
+                    <a  ui-sref="emailmarketing.createNewsletter" class="btn btn-xs btn-info">View</a>
+                    <a  ng-click="openModal()" class="btn btn-xs btn-warning">Usage</a>
+                  </center>
+                </td>
+  			    	</tr>
+  		    	</table>
+
+            <div class="modal ng-modal" ng-show="toggleModal">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header btn-primary">
+                    <button type="button" class="close" ng-click="toggleModal=flase">×</button>
+                    <h4 class="modal-title"><i class="fa fa-bar-chart fa-lg"></i> Gift Card Usage History</h4>
+                  </div>
+                  <div class="modal-body">
+                      <table class="table table-top table-striped table-bordered table-hover table-condensed">
+                        <tr>
+                          <th>No.</th>
+                          <th>Order no.</th>
+                          <th>User Email</th>
+                          <th>Price</th>
+                          <th>Order Date</th>
+                          <th>Blance Left</th>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>15465464</td>
+                          <td>ex@example.com</td>
+                          <td>-20</td>
+                          <td>12-15-2015</td>
+                          <td>50</td>
+                        </tr>
+                       <tr>
+                          <td>1</td>
+                          <td>15465464</td>
+                          <td>ex@example.com</td>
+                          <td>-20</td>
+                          <td>12-15-2015</td>
+                          <td>50</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>15465464</td>
+                          <td>ex@example.com</td>
+                          <td>-20</td>
+                          <td>12-15-2015</td>
+                          <td>50</td>
+                        </tr>
+                        </table>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" ng-click="toggleModal=flase">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<h1 class="page-header">
+	Manage Design
+</h1>
+<div class="vsap"></div>
+<div class="vsap"></div>
+<div class="row">
+	<div class="col-lg-2 col-md-2">
+		<div class="m-sidebar">
+			<ul class="nav nav-pills nav-stacked">
+			  <li ui-sref-active="active"><a ui-sref="design">Design Customization</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="col-lg-10 col-md-10">
+		<div class="well well-sm">
+			<div class="row">
+				<div class="col-md-12">
+				
+					<div class="pull-right">
+						<a href="" class="btn btn-default">Back</a>
+						<a href="" class="btn btn-danger">Cancle</a>
+						<a href="" class="btn btn-success">Save</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="vsap"></div>
+		<tabset>
+			<tab heading="Upload Logo ">
+				<div class="panel panel-default">
+				  <div class="panel-body">
+				    	<img src="http://www.logotemplater.com/freelogostemplates/zoozz-vector-logo-template-sample.png" alt="">
+						<div class="vsap"></div>
+						<input type="file" class="col-lg-6">
+				  </div>
+				</div>
+					
+			</tab>
+			<tab heading="Color Variation">
+				<div class="panel panel-default">
+				  <div class="panel-body">
+				  		<h3 class="page-header upper">Select Theme Color : </h3>
+
+				  		<div class="vsap"></div>
+				    	
+				    	<div class="m-themColorSelector">
+				    		<a class="btn btn-lg btn-default">Gray</a>
+				    		<a class="btn btn-lg btn-primary m-themColorSelector_selected">Orange</a>
+				    		<a class="btn btn-lg btn-success">Green</a>
+				    		<a class="btn btn-lg btn-info">Pink</a>
+				    		<a class="btn btn-lg btn-warning">Yellow</a>
+				    		<a class="btn btn-lg btn-danger">Red</a>
+				    	</div>
+
+
+				  </div>
+				</div>
+			
+			</tab>
+			<tab heading="Footer Information ">
+				<div class="panel panel-default">
+				  <div class="panel-body">
+				  	<h3 class="page-header upper">Footer Content : </h3>
+				  	<div class="vsap"></div>
+				  	<text-angular ng-model="footer.content"></text-angular>
+				  </div>
+				</div>
+			</tab>
+			<tab heading="Integration">
+				<div class="panel panel-default">
+				  <div class="panel-body">
+				  	<h3 class="page-header upper">External  Script Integration : </h3>
+				  	<div class="vsap"></div>
+						<textarea class="form-control"></textarea>
+				  </div>
+				</div>
+			</tab>
+		</tabset>
+	</div>
+</div>

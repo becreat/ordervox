@@ -1,0 +1,99 @@
+<div class="well well-sm">
+	<div class="row">
+		<div class="col-md-12">
+		
+			<div class="pull-right">
+				<a href="" class="btn btn-default">Back</a>
+				<a href="" class="btn btn-danger">Cancle</a>
+				<a href="" class="btn btn-success">Save</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+		    <h3 class="panel-title"><i class="fa fa-plus-circle"></i> Create New Giftcard</h3>
+		  </div>
+		  <div class="panel-body">
+		    <form class="form-horizontal">
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Card Title </label>
+		    	  <div class="col-lg-10"><input type="text" class="form-control"></div>
+		    	</div>
+
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Amount</label>
+		    	  <div class="col-lg-10"><input type="number" class="form-control"></div>
+		    	</div>
+
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Expiry date </label>
+		    	  <div class="col-lg-10"><input type="text" class="form-control"></div>
+		    	</div>
+
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Pin Code</label>
+		    	  <div class="col-lg-10"><input type="text" class="form-control"></div>
+		    	</div>
+
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Select Resturent</label>
+		    	  <div class="col-lg-10">
+		    	  	<ui-select ng-model="templeat.selected" theme="bootstrap">
+		    	  		<ui-select-match placeholder="Select Templete">{{$select.selected}}</ui-select-match>
+		    	  		<ui-select-choices repeat="c in resturent | filter:$select.search">
+		    	  		  {{c}}
+		    	  		</ui-select-choices>
+		    	  	</ui-select>
+		    	  </div>
+		    	</div>
+
+		    	
+
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Select users</label>
+		    	  <div class="col-lg-10">
+		    	  		<div class="btn-group" ng-init="selectuser='no'">   
+		    	  	        <label class="btn btn-default" ng-model="selectuser" btn-radio="'no'">List of users</label>
+		    	  	        <label class="btn btn-default" ng-model="selectuser" btn-radio="'yes'">All</label>
+		    	  	    </div>
+
+		    	  	    <div ng-if="selectuser=='no'">
+		    	  	    	<div class="vsap"></div>
+		    	  	    	<ui-select multiple ng-model="user.selected" theme="bootstrap">
+		    	  	    		<ui-select-match placeholder="Select Users">{{$item}}</ui-select-match>
+		    	  	    		<ui-select-choices repeat="u in users | filter:$select.search">
+		    	  	    		  {{u}}
+		    	  	    		</ui-select-choices>
+		    	  	    	</ui-select>
+		    	  	    </div>
+		    	  </div>
+		    	</div>
+
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Status</label>
+		    	  <div class="col-lg-10">
+		    	  		<div class="btn-group" ng-init="status='no'">   
+		    	  	        <label class="btn btn-default" ng-model="status" btn-radio="'no'">Enable</label>
+		    	  	        <label class="btn btn-default" ng-model="status" btn-radio="'yes'">Disable</label>
+		    	  	    </div>
+		    	  </div>
+		    	</div>
+
+		    	<div class="form-group">
+		    	  <label for="inputEmail" class="col-lg-2 control-label">Enable Guest Checkout</label>
+		    	  <div class="col-lg-10">
+		    	  		<div class="btn-group" ng-init="guestcheckout='no'">   
+		    	  	        <label class="btn btn-default" ng-model="guestcheckout" btn-radio="'yes'">Yes</label>
+		    	  	        <label class="btn btn-default" ng-model="guestcheckout" btn-radio="'no'">No</label>
+		    	  	    </div>
+		    	  </div>
+		    	</div>
+	    	</form>
+		  </div>
+		</div>
+	</div>
+</div>

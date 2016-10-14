@@ -1,0 +1,82 @@
+<h1 class="page-header">
+	Resturent Settings
+</h1>
+<div class="vsap"></div>
+<div class="vsap"></div>
+<div class="row">
+	<div class="col-lg-2 col-md-2">
+		<div class="m-sidebar">
+			<ul class="nav nav-pills nav-stacked"></ul>
+		</div>
+	</div>
+
+	<div class="col-lg-10 col-md-10">
+		
+			<div class="panel panel-primary">
+			  <div class="panel-heading">
+			    <h3 class="panel-title"><br></h3>
+			  </div>
+			  <div class="panel-body">
+			    <form class="form-horizontal">
+			    	<div class="form-group">
+			    	  <label for="inputEmail" class="col-lg-2 control-label">Set Operate Hours </label>
+			    	  <div class="col-lg-10">
+			    	  	<div class="row">
+			    	  		<div class="col-lg-6"><input type="text" name="" id=""><div class="innerwrap-h text-gray">From</div></div>
+			    	  		<div class="col-lg-6"><input type="text" name="" id=""><div class="innerwrap-h text-gray">To</div></div>
+			    	  	</div>
+			    	  </div>
+			    	</div>
+
+			    	<div class="form-group">
+			    	  <label for="inputEmail" class="col-lg-2 control-label">Day Off</label>
+			    	  <div class="col-lg-10">
+			    	  	<div class="btn-group">
+			    	  	        <label class="btn btn-default" ng-model="week.mo" btn-checkbox>Mon</label>
+			    	  	        <label class="btn btn-default" ng-model="week.tu" btn-checkbox>Tus</label>
+			    	  	        <label class="btn btn-default" ng-model="week.web" btn-checkbox>Web</label>
+			    	  	        <label class="btn btn-default" ng-model="week.thus" btn-checkbox>Thus</label>
+			    	  	        <label class="btn btn-default" ng-model="week.fri" btn-checkbox>Fri</label>
+			    	  	        <label class="btn btn-default" ng-model="week.sat" btn-checkbox>Sat</label>
+			    	  	        <label class="btn btn-default" ng-model="week.su" btn-checkbox>Su</label>
+			    	  	</div>
+			    	  </div>
+			    	</div>
+
+			    	<div class="form-group">
+			    	  <label for="inputEmail" class="col-lg-2 control-label">Currency</label>
+			    	  <div class="col-lg-10">
+			    	  	<div class="btn-group" ng-init="currency='euro'">
+			    	  	       <label class="btn btn-default" ng-model="currency" btn-radio="'doller'"><i class="fa fa-usd"></i></label>
+			    	  	       <label class="btn btn-default" ng-model="currency" btn-radio="'euro'"><i class="fa fa-eur"></i></label>
+			    	  	   </div>
+			    	  </div>
+			    	</div>
+
+			    	<div class="form-group">
+			    	  <label for="inputEmail" class="col-lg-2 control-label">Notification</label>
+			    	  <div class="col-lg-10">
+			    	  	<div class="btn-group" ng-init="notification=1">
+			    	  	       <label class="btn btn-default" ng-model="notification" btn-radio="1">On</label>
+			    	  	       <label class="btn btn-default" ng-model="notification" btn-radio="2">Off</label>
+			    	  	   </div>
+			    	  </div>
+			    	</div>
+
+			    	<div class="form-group">
+			    	  <label for="inputEmail" class="col-lg-2 control-label">Print Settings </label>
+			    	  <div class="col-lg-10">
+			    	  	<div class="row">
+			    	  		<div class="col-lg-6"><input type="text" name="" id=""><div class="innerwrap-h text-gray">Gmail Username </div></div>
+			    	  		<div class="col-lg-6"><input type="text" name="" id=""><div class="innerwrap-h text-gray">Gmail Password</div></div>
+			    	  	</div>
+			    	  </div>
+			    	</div>
+
+
+		    	</form>
+			  </div>
+			</div>
+		
+	</div>
+</div>

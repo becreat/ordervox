@@ -1,0 +1,130 @@
+<h1 class="page-header">
+	Manage Slider
+</h1>
+<div class="vsap"></div>
+<div class="vsap"></div>
+<div class="row">
+	<div class="col-lg-2 col-md-2">
+		<div class="m-sidebar">
+			<ul class="nav nav-pills nav-stacked">
+				<li ui-sref-active="active"><a ui-sref="slider">Manage Slider</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="col-lg-10 col-md-10">
+		<div class="well well-sm">
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="pull-right">
+						<a href="" class="btn btn-default">Back</a>
+						<a href="" class="btn btn-danger">Cancle</a>
+						<a href="" class="btn btn-success">Save</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title"><i class="fa fa-slideshare"></i> Slider Images</h3>
+			</div>
+			<div class="panel-body">
+				<form class="form-horizontal">
+					<div class="form-group">
+						 <label for="inputEmail" class="col-lg-2 control-label">Slide Title</label>
+						 <div class="col-lg-10"><input type="text" ng-model="slide.title" class="form-control" placeholder="slide title" ></div>
+					</div>
+
+					<div class="form-group">
+						 <label for="inputEmail" class="col-lg-2 control-label">
+						 	<span class="vsap sc-only" style="100px"></span>
+						 	Slide Content : 
+						 </label>
+						 <div class="col-lg-10">
+							<text-angular ng-model="slide.content" placeholder="Slider"></text-angular>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						 <label for="inputEmail" class="col-lg-2 control-label">Upload Slide Image</label>
+						<div class="col-lg-10 col-md-12">
+							<input type="file">
+							<div class="vsap"></div>
+							<a href="" class="btn btn-info btn-large col-lg-6 pull-right" ng-click="addSlide()">Add Slide</a>
+						</div>
+					</div>
+				</form>
+
+				<div class="vsap"></div>
+
+				<table class="table table-top table-striped table-bordered table-hover table-condensed">
+					<tr>
+						<th>No.</th>
+						<th>Slider Title</th>
+						<th>Slider Content</th>
+						<th>Image Thumb</th>
+						<th class="disable"></th>
+						
+					</tr>
+
+
+					<tr ng-repeat="item in sliders |filter:items.search">
+						<td>{{$index+1}}</td>
+						<td>{{item.title}}</td>
+						<td>{{item.content}}</td>
+						<td><center><img src="http://iconizer.net/files/Oxygen/orig/file-broken.png" height="50"></center></td>
+
+						<td>
+							<center>
+								<a  class="btn btn-xs btn-warning" ng-click="editSlide($index)">Edit</a>
+								<a  class="btn btn-xs btn-danger" ng-click="deleteSlide($index)">Delete</a>
+							</center>
+						</td>
+					</tr>
+
+
+
+
+
+
+				</table>
+
+				<div class="modal ng-modal" ng-show="toggleModal">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" ng-click="toggleModal=flase">×</button>
+				        <h4 class="modal-title">Edit Slider</h4>
+				      </div>
+				      <div class="modal-body">
+				        <form class="form-horizontal">
+				        	<div class="form-group">
+				        		 <label for="inputEmail" class="col-lg-2 control-label">Slide Title</label>
+				        		 <div class="col-lg-10"><input type="text" ng-model="selectedslider.title" class="form-control" placeholder="slide title" ></div>
+				        	</div>
+
+				        	<div class="form-group">
+				        		 <label for="inputEmail" class="col-lg-2 control-label">
+				        		 	<span class="vsap sc-only" style="100px"></span>
+				        		 	Slide Content : 
+				        		 </label>
+				        		 <div class="col-lg-10">
+				        			<text-angular ng-model="selectedslider.content" placeholder="Slider"></text-angular>
+				        		</div>
+				        	</div>
+			        	</form>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-success" ng-click="saveSlider()">Save</button>
+				        <button type="button" class="btn btn-default" ng-click="toggleModal=flase">Close</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</div>

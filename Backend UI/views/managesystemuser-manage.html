@@ -1,0 +1,71 @@
+<div class="well well-sm">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pull-right">
+        <a ui-sref="managesystemuser.add" class="btn btn-success">Add New User</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Manage Users</h3>
+  </div>
+  <div class="panel-body">
+  	     		<table class="table table-top table-striped table-bordered table-hover table-condensed">
+  			    	<tr>
+                <th></th>
+  			    		<th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Status</th>
+  			    		<th class="disable"></th>
+  			    	</tr>
+
+  			    	<tr class="row-filter">
+  			    		<td width="2%" class="disable"></td>
+                <td><input type="text" ng-model="items.search.name"></td>
+  			    		<td><input type="text" ng-model="items.search.username"></td>
+                <td><input type="text" ng-model="items.search.email"></td>
+                <td><input type="text" ng-model="items.search.date"></td>
+                <td>
+                  <select  ng-model="items.search.cuponstatus">
+                    <option value="">All</option>
+                    <option value="enable">Enable</option>
+                    <option value="disable">Disable</option>
+                  </select>
+                </td>
+                <td></td>
+  			    		
+  			    	</tr>
+
+  			    	<tr ng-repeat="item in users |filter:items.search">
+  			    		<td>
+  			    			{{$index+1}}
+  			    		</td>
+  			    		<td>{{item.name}}</td>
+                <td>{{item.username}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.date}}</td>
+                <td><span class="label label-{{item.status}}">{{item.status}}</span></td>
+               
+                <td>
+                  <center>
+                    <a  ui-sref="managesystemuser.add" class="btn btn-xs btn-warning">Edit</a>
+                  </center>
+                </td>
+  			    	</tr>
+
+  			    
+  			    	
+  			    	
+  			    	
+  			    	
+
+  		    	</table>
+
+             
+  </div>
+</div>
