@@ -88,6 +88,8 @@ class Mysql
 	function Insert($row)
 	{
 		$row = $this->_removeExtraColumns($row);
+
+
 		$this->_query = 'insert into ' . $this->_table . ' (`' .  implode('`,`', array_keys($row)) .'`) ';
 		$this->_query.= 'values("' . implode('","', array_values($row)) . '") ';
 	
@@ -99,6 +101,7 @@ class Mysql
 		
 		
 		$row = $this->_removeExtraColumns($row);
+
 		$this->_query = 'update ' . $this->_table . ' set ';;
 		foreach ($row as $key => $value) {
 			$this->_query .= $key .'="'. $value . '", ';
@@ -168,17 +171,18 @@ class Mysql
 
 	private function _removeExtraColumns($rows)
 	{
-		error_reporting(0);
+		
 		$newrow = [];
 		$column = $this->getColumn();
 
-
-		
 		foreach ($column as $col) 
 		{
-			$newrow[$col] = $rows[$col];
+			if(array_key_exists($col,$rows))
+			{
+				$newrow[$col] = $rows[$col];
+				
+			}
 		}
-
 		return $newrow;
 	}
 
